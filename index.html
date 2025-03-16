@@ -7,7 +7,7 @@
 
     <meta name="author" content="Jon Barron">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/favicon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
     
   </head>
@@ -36,7 +36,7 @@
                 </p>
               </td>
               <td style="padding:2.5%;width:40%;max-width:40%">
-                <a href="images/MyProfile.jpeg"><img style="width:100%;max-width:100%;border-radius: 50%;" alt="profile photo" src="images/MyProfile.jpeg" class="hoverZoomLink"></a>
+                <a href="assets/MyProfile.jpeg"><img style="width:100%;max-width:100%;border-radius: 50%;" alt="profile photo" src="assets/MyProfile.jpeg" class="hoverZoomLink"></a>
               </td>
             </tr>
           </tbody></table>
@@ -45,22 +45,61 @@
               <td style="padding:20px;width:100%;vertical-align:middle">
                 <h2>Research</h2>
                 <p>
-                  I have a keen interest in AI/ML as a whole. Particularly, I am deeply fascinated by Graph Neural Networks and Vison-Language Models.
+                  I have a keen interest in AI/ML as a whole. Particularly, I am deeply fascinated by Graph Neural Networks and AI Agents.
                 </p>
               </td>
             </tr>
           </tbody></table>
 
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr onmouseout="camp_stop()" onmouseover="camp_start()">
+              <td style="padding:20px;width:25%;vertical-align:middle">
+                <div class="one">
+                  <!-- <div class="two" id='camp_image'><video  width=100% height=100% muted autoplay loop>
+                  <source src="assets/camp.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                  </video></div> -->
+                  <img src='assets/acl_figure.png' width="160">
+                </div>
+                <script type="text/javascript">
+                  function camp_start() {
+                    document.getElementById('camp_image').style.opacity = "1";
+                  }
+        
+                  function camp_stop() {
+                    document.getElementById('camp_image').style.opacity = "0";
+                  }
+                  camp_stop()
+                </script>
+              </td>
+              <td style="padding:20px;width:75%;vertical-align:middle"> 
+                  <span class="papertitle">
+                    Prompt Optimization for Large Language Models with Generalized
+                    Feedback via Semantic Centrality</span> 
+                <br>
+                <strong>Minhyuk An</strong>, Tae-hoon Kang, Haerin Byeon, Sung-Bae Cho
+                <br>
+                <em>Preprint</em>, ACL 2025 (under review)
+                <br>
+                <a href="assets/ACL_submission.pdf">Paper</a>
+                /
+                <a href="https://github.com/als7928/Prompt-Optimization-with-Generalized-Feedback">Code</a>
+                <p></p>
+                <p>
+                Large Language Models / Prompt Optimization / LLM Generalization / Dialogue and Interactive Systems
+                </p>
+              </td>
+            </tr>
+
 
             <tr onmouseout="camp_stop()" onmouseover="camp_start()">
               <td style="padding:20px;width:25%;vertical-align:middle">
                 <div class="one">
-                  <div class="two" id='camp_image'><video  width=100% height=100% muted autoplay loop>
-                  <source src="images/camp.mp4" type="video/mp4">
+                  <!-- <div class="two" id='camp_image'><video  width=100% height=100% muted autoplay loop>
+                  <source src="assets/camp.mp4" type="video/mp4">
                   Your browser does not support the video tag.
-                  </video></div>
-                  <img src='images/blend.png' width="160">
+                  </video></div> -->
+                  <img src='assets/blend.png' width="160">
                 </div>
                 <script type="text/javascript">
                   function camp_start() {
@@ -74,15 +113,13 @@
                 </script>
               </td>
               <td style="padding:20px;width:75%;vertical-align:middle">
-                <a href="pdf/IJCAI_Graph_AMH.pdf">
                   <span class="papertitle">Local-Global Blending Graph Neural ODE Network for Graph Classification</span>
-                </a>
                 <br>
                 <strong>Minhyuk An</strong>, Sung-Bae Cho
                 <br>
-                <em>Under review</em>, 2025
+                <em>Preprint</em>, IJCAI 2025 (under review)
                 <br>
-                <a href="pdf/IJCAI_Graph_AMH.pdf">Paper</a>
+                <a href="assets/IJCAI_Graph_AMH.pdf">Paper</a>
                 /
                 <a href="https://github.com/als7928/Blend-GNN">Code</a>
                 <p></p>
@@ -90,10 +127,10 @@
                 Graph Neural Network / Graph Mining
                 </p>
               </td>
-            </tr>
-            
+            </tr> 
           </tbody></table>
 
+          
 
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr>
@@ -110,10 +147,10 @@
             <td style="padding:20px;width:25%;vertical-align:middle">
               <div class="one">
                 <div class="two" id='camp_image'><video  width=100% height=100% muted autoplay loop>
-                <source src="images/camp.mp4" type="video/mp4">
+                <source src="assets/demo.mp4" type="video/mp4">
                 Your browser does not support the video tag.
                 </video></div>
-                <img src='images/comming_soon.png' width="160">
+                <!-- <img src='assets/comming_soon.png' width="160"> -->
               </div>
               <script type="text/javascript">
                 function camp_start() {
@@ -133,11 +170,13 @@
               <br>
               <a href="https://als7928.github.io/">TBD</a>,
               <br>
-              <em>TBD</em>, 2023
+              <em>Bachelor's thesis</em>, 2023
               <br>
-              <a href="https://als7928.github.io/">.</a>
+              <a href="assets/crowd_counting_paper.pdf">Paper</a>
               /
-              <a href="https://als7928.github.io/">.</a>
+              <a href="assets/CrowdCounting_Poster.pdf">Poster</a>
+              /
+              <a href="https://github.com/als7928/Capstone">Code</a>
               <p></p>
               <p>
               TBD
