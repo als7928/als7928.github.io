@@ -120,7 +120,11 @@
                 <a href="assets/ACL_submission.pdf">Paper</a>
                 /
                 <a href="https://github.com/als7928/Prompt-Optimization-with-Generalized-Feedback">Code</a>
-                <p></p>
+                <p>
+                    <li><strong>Problem:</strong> Prompt optimization for LLMs can lead to overfitting; incorporating diverse perspectives is needed for better generalization</li>
+                    <li><strong>My Approach:</strong> Applied prompt optimization using semantic centrality-based feedback</li>
+                    <li><strong>Result:</strong> Concept-centered feedback leads to clearer and more accurate LLM responses</li>
+                </p>
                 <p>
                 AI Agents / Large Language Models / Prompt Optimization / Black-box Optimization / Dialogue & Interactive Systems / Monte Carlo Tree Search
                 </p>
@@ -144,7 +148,11 @@
                 <a href="assets/IJCAI_Graph_AMH.pdf">Paper</a>
                 /
                 <a href="https://github.com/als7928/Blend-GNN">Code</a>
-                <p></p>
+                <p>
+                  <li><strong>Problem:</strong> Existing GNNs struggle to balance local and global context for graph classification</li>
+                  <li><strong>My Approach:</strong> Designed a Graph Neural ODE that combines local-global representations dynamically</li>
+                  <li><strong>Result:</strong> Joint modeling of information enhances performance</li>
+                </p>
                 <p>
                 Graph Neural Network / Representation Learning / Graph Mining / Neural Ordinary Differential Equations
                 </p>
@@ -180,8 +188,9 @@
               <br>
               <a href="https://github.com/als7928/Dacon/tree/main">Code</a>
               <p>
-                Developed a semi-supervised semantic segmentation method for predicting highly distorted (hard) target images.
-                <br>Discovered that data augmentation and manipulating representations are effective.
+                <li><strong>Problem:</strong> Semantic segmentation performance drops on highly distorted images from different domains</li>
+                <li><strong>My Approach:</strong> Built a semi-supervised method with domain-invariant features and adaptive augmentation</li>
+                <li><strong>Result:</strong> Data augmentation and representation manipulation are key to robust domain adaptation</li>
               </p>
               <p>
                 Domain Adaptation / Domain Adaptive Semantic Segmentation / Semi-Supervised Learning / Pseudo Labeling / Adaptive Cutmix
@@ -206,8 +215,9 @@
               /
               <a href="https://github.com/als7928/Capstone">Code</a>
               <p>
-                Developed an latent diffusion based crowd counting system with only RGB images.
-                <br> Succeeded with a single and common modality, avoiding the high cost of data like thermal and depth. 
+                <li><strong>Problem:</strong> Crowd counting often requires expensive data like depth or thermal images</li>
+                <li><strong>My Approach:</strong> Built a diffusion-based counting system using only RGB images in latent space</li>
+                <li><strong>Result:</strong> It's possible to achieve accurate results with accessible modalities by leveraging generative models</li>
               </p>
               <p>
                 Crowd Counting / Diffusion Models
@@ -232,9 +242,9 @@
               /
               <a href="https://colab.research.google.com/drive/1eFgm5O52iepLfS2z9UUN7ZZl9r7YucxC?usp=sharing">Code</a>
               <p>
-                Conducted experiments by applying various methods to enhance CNN performance introduced in <a href="https://arxiv.org/pdf/1812.01187">Bag of Tricks paper</a>.
-                <br> Confirmed that they are simple yet effective method for improving model performance.
-                <br> While Mixup is effective, but the increase in hyperparameters is a concern.
+                <li><strong>Problem:</strong> CNN performance improvements often require complex changes or large-scale data</li>
+                <li><strong>My Approach:</strong> Applied simple techniques from the <a href="https://arxiv.org/pdf/1812.01187">Bag of Tricks paper</a> like label smoothing, mixup, and learning rate scheduling to boost ResNet accuracy</li>
+                <li><strong>Result:</strong> Simple tricks can effectively improve accuracy, but some (e.g., Mixup) introduce extra hyperparameter tuning challenges</li>
               </p>
               <p>
                 Knowledge Distillation / Learning Rate Scheduling / Label Smoothing / Mixup Augmentation / ResNet
@@ -257,9 +267,9 @@
               <br>
               <a href="assets/Synthetic_datasets.pdf">Report1</a> / <a href="https://als7928.notion.site/Experiment-Class-Imbalance-9dd74cbae4284b21b11ec37792b39969?pvs=4">Report2</a>
               <p>
-                Identified that class imbalance is always a concern in deep learning projects.
-                <br> Did data synthesis and sampling strategies to mitigate the problems.
-                <br> Confirmed that discarding data to force balance is not ideal.
+                <li><strong>Problem:</strong> Class imbalance frequently degrades model performance in deep learning tasks</li>
+                <li><strong>My Approach:</strong> Built an automated data synthesis system using easily available background images and foregrounds from minority classes to generate a balanced dataset</li>
+                <li><strong>Result:</strong> Synthetic datasets can effectively train deep learning models, proving valuable as training data while reducing dataset construction costs through automation</li>
               </p>
               <p>
                 Class Imbalance / Data Synthesis / Data Augmentation / Semantic Segmentation / Data Sampling
@@ -282,8 +292,9 @@
               <a href="assets/Object_detection_demo.mp4">Demo</a> / <a href="https://als7928.notion.site/Frustum-Pointnet-Research-85df89d8be104950b8a1e276e0ab02c2?pvs=4">Note1 </a>/ <a href="https://als7928.notion.site/1b851264951980c39c7ad5e07f21e202">Note2</a>
               <!-- / <a href="https://github.com/Hello-Hyuk/TEAM-GIGACHA/tree/develop">Code</a> -->
               <p>
-              Developed a real-time deep learning-based 3d object detection system with cameras and LiDAR.
-              <br> Effectively detected only specific objects by using both image and point cloud inference together.
+                <li><strong>Problem:</strong> Robust 3D object detection in real-time is challenging</li>
+                <li><strong>My Approach:</strong> Built a deep learning-based 3D oject detection that fuses camera and LiDAR</li>
+                <li><strong>Result:</strong> > Using multiple modalities improves accuracy, but introduces challenges in calibration and significantly increases data collection cost</li>
               </p>
               <p>
               3D Object Detection / Sensor Fusion / Calibration / ROS / Custom Datasets
@@ -306,9 +317,9 @@
               <br>
               <a href="assets/DSP_report.pdf">Report</a>
               <p>
-                Developed a system that classifies voice pitch ranges based on the fundamental frequency of human voices in the
-                frequency domain.
-                <br>Sparked my interest in data analytics and AI/ML.
+                <li><strong>Problem:</strong> Identifying speaker and gender from random voice.</li>
+                <li><strong>My Approach:</strong> Built a classification system using fundamental frequency and K-means clustering.</li>
+                <li><strong>Result:</strong> This project sparked my interest in Data Analytics, and AI/ML.</li>
               </p>
               <p>
               Audio Analysis / Digital Signal Processing / K-means Clustering
@@ -339,7 +350,7 @@
                 <br>
                   <strong>Vertically Integrated Projects (다학년연구프로젝트)</strong> (2021.09 — 2022.12)
                   <br>Funded by Inha University
-                  <br>Acquired expertise, insights into research, problem-solving and collaboration skills.
+                  <br><strong>Result:</strong> Acquired expertise, insights into research, problem-solving and collaboration skills.
         
           </p>
         </td>
@@ -402,15 +413,13 @@
         <br>
           <strong>Future Mobility Urban Challenge Award</strong> (2022.11)
           <br> Seoul National University 
-          <br>
-            Developed object detection systems (2D, 3D) for traffic signals, signs and cones.
+          <br> Developed object detection systems (2D, 3D) for traffic signals, signs and cones.
         
         <br>
         <br>
           <strong>International Student Automotive Innovation Competition</strong> (2022.10)
           <br> Korea Auto-Vehicle Safty Association (한국자동차안전학회)
-          <br>
-            Developed object detection systems (2D, 3D) for traffic signals, signs and cones.
+          <br> Developed object detection systems (2D, 3D) for traffic signals, signs and cones.
         
         <br>
         <br>
@@ -423,9 +432,9 @@
           <br> Computer Vision Laboratory, Inha University (advisor: Hakil Kim)
 
           <br> Developed a system that utilizes instance segmentation to understand the background scene and automatically
-            constructs synthetic datasets by augmenting objects.
+            constructs synthetic datasets by augmenting objects. (<a href="https://als7928.notion.site/Constructing-Synthetic-Datasets-d739777e14244eec8329ad029029c15a?pvs=4">Note</a>)
           
-          <br><a href="https://als7928.notion.site/Constructing-Synthetic-Datasets-d739777e14244eec8329ad029029c15a?pvs=4">Note</a>
+          <br>
         
         <br>
         <br>
