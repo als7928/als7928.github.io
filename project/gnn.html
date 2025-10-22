@@ -73,13 +73,14 @@
                         <tbody>
                             <tr>
                                 <td style="padding:20px;width:100%;vertical-align:middle;text-align: left;">
-                                    <h2>결과</h2>
+                                    <h2>실험</h2>
+                                    <p class="paperdesc">그래프 분류 데이터셋 6종, 노드 분류 데이터셋 4종, 그래프 회귀 데이터셋 2종에 대해 실험하였고 Chameleon 데이터셋에서 최대 11.01%p 성능 향상을 확인했다.</p>
                                     <div style="text-align:center; margin:1em 0;">
                                         <div id="gnn-carousel" style="display:inline-block; max-width:100%; text-align:center;">
                                             <div style="position:relative; display:inline-block; width:100%; max-width:800px;">
-                                                <img src="gnn_tab1.png" class="slide active" style="max-width:100%; height:auto; display:block;">
-                                                <img src="gnn_tab2.png" class="slide" style="max-width:100%; height:auto; display:none;">
-                                                <img src="gnn_tab3.png" class="slide" style="max-width:100%; height:auto; display:none;">
+                                                <img src="https://als7928.github.io/project/gnn_tab1.png" class="slide active" style="max-width:100%; height:250px; display:block;">
+                                                <img src="https://als7928.github.io/project/gnn_tab2.png" class="slide" style="max-width:100%; height:250px; display:none;">
+                                                <img src="https://als7928.github.io/project/gnn_tab3.png" class="slide" style="max-width:100%; height:250px; display:none;">
 
                                                 <button id="gnn-prev" aria-label="Previous" style="position:absolute; left:6px; top:50%; transform:translateY(-50%); background:rgba(0,0,0,0.5); color:white; border:none; padding:8px 12px; cursor:pointer; border-radius:4px;">
                                                     ‹
@@ -88,12 +89,11 @@
                                                     ›
                                                 </button>
                                             </div>
-
-                                            <div id="gnn-dots" style="margin-top:0.6em;">
+                                            <!-- <div id="gnn-dots" style="margin-top:0.6em;">
                                                 <button class="gnn-dot active" data-index="0" style="margin:0 4px; padding:4px 8px; cursor:pointer;">1</button>
                                                 <button class="gnn-dot" data-index="1" style="margin:0 4px; padding:4px 8px; cursor:pointer;">2</button>
                                                 <button class="gnn-dot" data-index="2" style="margin:0 4px; padding:4px 8px; cursor:pointer;">3</button>
-                                            </div>
+                                            </div> -->
                                         </div>
 
                                         <script>
@@ -115,21 +115,26 @@
                                             document.getElementById('gnn-next').addEventListener('click', () => show(idx + 1));
                                             dots.forEach(d => d.addEventListener('click', e => show(Number(e.currentTarget.dataset.index))));
 
-                                            // optional: allow arrow keys when carousel is focused
                                             document.getElementById('gnn-carousel').addEventListener('keydown', (e) => {
                                                 if(e.key === 'ArrowLeft') show(idx - 1);
                                                 if(e.key === 'ArrowRight') show(idx + 1);
                                             });
-                                            // make container focusable for keyboard navigation
                                             document.getElementById('gnn-carousel').setAttribute('tabindex', '0');
-
-                                            // initialize
                                             show(0);
                                         })();
                                         </script>
                                     </div>
-                                    <p class="paperdesc">설명</p>
-                                    
+
+                                    <p class="paperdesc">모델 학습 과정에서 각 데이터셋에 대해 Attention weight를 확인한 결과, 다음과 같이 데이터 별 전역 표현과 지역 표현이 학습되는 가중치가 서로 다른 것을 확인할 수 있다.</p>
+                                    <div style="text-align:center; margin:1em 0;">
+                                        <img src="https://als7928.github.io/project/gnn_ratio.png" alt="Overall architecture" style="max-width:100%; height:300px; display:inline-block;">
+                                    </div>
+
+                                    <p class="paperdesc">저분자 데이터셋 (PTC)과 단백질 데이터셋 (PROTEINS)에 대한 정성 평가 결과. PTC_MR에 대해선 각 노드에 탄소(C), 질소(N), 산소(O)가, PROTEINS에 대해선 각 노드에 헬릭스 (0) 시트(1)가 라벨링 되어있다.</p>
+                                    <div style="text-align:center; margin:1em 0;">
+                                        <img src="https://als7928.github.io/project/gnn_casestudy.png" alt="Overall architecture" style="max-width:100%; height:400px; display:inline-block;">
+                                    </div>
+
                                 </td>
                             </tr>
                         </tbody>
