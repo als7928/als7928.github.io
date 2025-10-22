@@ -5,7 +5,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <title>Minhyuk An</title>
-
+    <script>
+    window.MathJax = { tex: { inlineMath: [['\\(','\\)'], ['$', '$']] } };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer></script> 
     <meta name="author" content="Jon Barron">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="https://als7928.github.io/assets/favicon/favicon.ico" type="image/x-icon">
@@ -43,9 +46,9 @@
                                     </p>
                                     <br>
                                     <div style="text-align:center; margin:1em 0;">
-                                        <img src="https://als7928.github.io/project/crowd_counting_process.png" alt="Overall framework" style="max-width:100%; height:auto; display:inline-block;">
+                                        <img src="https://als7928.github.io/project/crowdcounting_process.png" alt="Overall framework" style="max-width:100%; height:auto; display:inline-block;">
                                     </div>
-                                    <p class="paperdesc"> 설명</p>
+                                    <p class="paperdesc"> DDIM(Differentiable Diffusion Implicit Models)로부터 500번의 노이즈 제거를 수행해 \((z_T, z_{T-1}, ..., z_0)\)를 얻은 후 Contour Detection을 통해 인구수와 위치를 추정한다.</p>
                                     
                                 </td>
 
@@ -59,7 +62,7 @@
                             <tr>
                                 <td style="padding:20px;width:100%;vertical-align:middle;text-align: center;">
                                     <h2>요약</h2>
-                                    <p class="paperdesc">Crowd Counting은 이미지 속 사람의 수를 정확하게 추정하는 것을 목표로 하는 컴퓨터 비전 분야의 지속적인 연구 주제다. 본 연구는 깊이 정보나 열 영상과 같은 추가 데이터를 활용하는 기존 접근 방식을 벗어나, 새로운 관점을 제시한다. 이미지 생성에서 탁월한 성능을 보이는 확산 모델(Diffusion Models, DMs)의 장점을 활용하여, 본 연구에서는 잠재 확산 모델(Latent Diffusion Model)을 기반으로 한 접근법을 제안한다. 이를 통해 고품질의 군중 밀도 맵(Crowd Map)을 생성하고, 고가의 센서를 사용하지 않고도 사람 수를 효과적으로 추정할 수 있다. 본 연구는 확산 모델을 군중 수 추정 문제에 접목할 수 있는 가능성을 보여주며, 서로 다른 기술 분야의 강점을 융합하여 현대 사회의 발전에 기여한다.</p>
+                                    <p class="abstract">Crowd Counting은 이미지 속 사람의 수를 정확하게 추정하는 것을 목표로 하는 컴퓨터 비전 분야의 지속적인 연구 주제다. 본 연구는 깊이 정보나 열 영상과 같은 추가 데이터를 활용하는 기존 접근 방식을 벗어나, 새로운 관점을 제시한다. 이미지 생성에서 탁월한 성능을 보이는 확산 모델(Diffusion Models, DMs)의 장점을 활용하여, 본 연구에서는 잠재 확산 모델(Latent Diffusion Model)을 기반으로 한 접근법을 제안한다. 이를 통해 고품질의 군중 밀도 맵(Crowd Map)을 생성하고, 고가의 센서를 사용하지 않고도 사람 수를 효과적으로 추정할 수 있다. 본 연구는 확산 모델을 군중 수 추정 문제에 접목할 수 있는 가능성을 보여주며, 서로 다른 기술 분야의 강점을 융합하여 현대 사회의 발전에 기여한다.</p>
                                     
                                 </td>
                             </tr>
@@ -71,26 +74,45 @@
                         <tbody>
                             <tr>
                                 <td style="padding:20px;width:100%;vertical-align:middle;text-align: left;">
-                                    <h2>섹션1</h2>
-                                    <p class="paperdesc">설명</p>
+                                    <h2>아키텍쳐</h2>
+                                    <p class="paperdesc">
+                                        <ol>
+                                            <li>
+                                            <strong>인코딩(Encoder, 𝓔)</strong>:
+                                            입력 군중 맵 \(x\) (1×256×256) 잠재 표현 \(z = 𝓔(x)\) (1×64×64)로 압축한다.
+                                            확산을 잠재 공간에서 수행해 효율성과 품질을 동시에 확보한다.
+                                            </li>
+                                            <li>
+                                            <strong>조건부 컨텍스트 인코딩(Condition Encoder, 𝓣)</strong>:
+                                            RGB 이미지 \(y\) (3×256×256)를 \(𝓣(y)\) (3×64×64)로 변환하고,
+                                            채널 단위로 \(z\)와 결합하여 U-Net의 cross-attention에 주입한다.
+                                            </li>
+                                            <li>
+                                            <strong>잠재 확산(Diffusion + Denoising U-Net)</strong>:
+                                            z를 시간 단계 \(t\)에 따라 노이즈가 섞인 \(z_t\)로 만들고,
+                                            네트워크 \(ε_θ(z_t, t, 𝓣(y))\)가 노이즈를 예측·제거하도록 학습한다.
+                                            학습 후에는 반대 과정을 통해 깨끗한 잠재 표현 \(z_0\)을 복원한다.
+                                            </li>
+                                            <li>
+                                            <strong>디코딩(Decoder, 𝓓)</strong>:
+                                            \(z_0\)를 입력으로 최종 군중 밀도맵 \(\hat{x} = 𝓓(z_0)\)을 재구성한다.
+                                            </li>
+                                        </ol>
+                                    </p>
+                                    <div style="text-align:center; margin:1em 0;">
+                                        <img src="https://als7928.github.io/project/crowdcounting_architecture.png" alt="Overall architecture" style="max-width:70%; height:70%; display:inline-block;">
+                                    </div>
+
                                     
+                                    <p class="paperdesc">ShanghaiTech Part-A 데이터셋에 대한 실험 결과. 모델이 사람이 위치한 곳을 예상하고 Crowd map을 생성했다.</p>
+                                    <div style="text-align:center; margin:1em 0;">
+                                        <img src="https://als7928.github.io/project/crowdcounting_fig.png" alt="Overall architecture" style="max-width:100%; height:100%; display:inline-block;">
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
 
-                    <table
-                        style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-                        <tbody>
-                            <tr>
-                                <td style="padding:20px;width:100%;vertical-align:middle;text-align: left;">
-                                    <h2>결과</h2>
-                                    <p class="paperdesc">설명</p>
-                                    
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
 </body>
 
 </html>
