@@ -37,7 +37,11 @@
                                     <p class="author" style="text-align: center;">
                                     안민혁, 조성배 교수님
                                     </p>
-
+                                    <p class="date" style="text-align: center;">
+                                        <em>Preprint</em> (2024.05 — 현재)
+                                        <br>
+                                        기여도: 100%
+                                    </p>
                                     <p style="text-align:center;">
                                         <a href="https://als7928.github.io/project/NeurIPS_2025_Graph.pdf"><i style='font-size:1em;font-size: px;' class='fa'>&#xf15c;&nbsp;</i>Paper</a>
                                         /
@@ -60,7 +64,7 @@
                         <tbody>
                             <tr>
                                 <td style="padding:20px;width:100%;vertical-align:middle;text-align: center;">
-                                    <h2>요약</h2>
+                                    <h2>초록</h2>
                                     <p class="abstract">그래프 신경망(Graph Neural Networks, GNNs)은 메시지 패싱(messagepassing)을 통해 지역 구조(local structures)를 효과적으로 모델링하며 다양한 그래프 기반 문제에서 우수한 성능을 보여왔다. 그러나 이러한 접근방법은 본질적으로 지역적인 집계 방식에 의존하기 때문에 장거리 의존성(long-range dependency)을 포착하는 데에는 한계가 있다. 이를 극복하기 위해 최근에는 전역 어텐션(global attention) 메커니즘을 도입한 Transformer 기반 GNN들이 제안되었으며, 이들은 멀리 떨어진 노드 간의 직접적인 상호작용을 가능하게 하여 전역 문맥(global context)에 대한 포착능력을 향상시킨다. 그러나 이러한 모델들은 전역 정보와 지역 정보를 독립적인 요소로 취급하는 경향이 있어, 양자의 통합에 대한 근본적인 원리를 결여하고 있다. 본 연구에서는 전역 구조가 지역 패턴의 해석을 안내하는 계층적(hierarchical) 모델링 접근이 효과적인 그래프 이해에 필수적이라고 주장하며, 이를 구현하기 위한 새로운 GNN 아키텍처를 제안한다. 제안하는 모델은 먼저 그래프 확산(graph diffusion)을 통해 전역정보를 모델링하고, 이를 바탕으로 그래프 반응(graph reaction)을 통해지역 정보를 유도하여 노드 표현을 계층적으로 학습한다. 마지막으로, 그래프의 위상(topology)과 작업(task) 특성에 따라 전역 및 지역 신호를적응적으로 통합하는 융합 메커니즘을 도입한다. 모델의 성능은 분자구조, 생물정보학, 사회 네트워크 등 다양한 도메인의 그래프 분류 데이터셋 6종, 장거리 의존성을 갖는 그래프 벤치마크 2종, 노드 분류 데이터셋 4종에 대해 검증하였으며. 실험 결과, 메시지 패싱 기반 및 Transformer 기반 GNN들과 비교하여 최대 11.01%p의 성능 향상을 달성하였으며, 추가적인 ablation 실험, 민감도 분석, 사례 연구 등을 통해 제안한 전역-지역 통합 설계의 표현력 향상 효과를 확인하였다.</p>
                                     
                                 </td>
@@ -124,7 +128,7 @@
                                         })();
                                         </script>
                                     </div>
-                                    <p class="paperdesc">Ablation study 수행 결과는 다음과 같다.</p>
+                                    <p class="paperdesc">Ablation study 수행 결과는 다음과 같다. 전역 표현, Loss 항, 지역 표현, Fusion-level에 대한 유용성을 확인할 수 있다. </p>
                                     <div style="text-align:center; margin:1em 0;">
                                         <img src="https://als7928.github.io/project/gnn_ablation.png" alt="Ablation study" style="max-width:90%; height:90%; display:inline-block;">
                                     </div>
@@ -134,7 +138,7 @@
                                         <img src="https://als7928.github.io/project/gnn_ratio.png" alt="Analysis" style="max-width:100%; height:300px; display:inline-block;">
                                     </div>
 
-                                    <p class="paperdesc">저분자 데이터셋 (PTC)과 단백질 데이터셋 (PROTEINS)에 대한 정성 평가 결과. PTC_MR에 대해선 각 노드가 탄소(C), 질소(N), 산소(O)를, PROTEINS에 대해선 각 노드가 헬릭스 (0) 시트(1)를 의미한다. 각 원자마다 모델이 예측시 중요하게 여기는 표현이 시각화되어 나타났다(주황색은 지역 표현을, 보라색은 전역 표현을 나타냄).</p>
+                                    <p class="paperdesc">저분자 데이터셋 (PTC)과 단백질 데이터셋 (PROTEINS)에 대한 정성 평가 결과. PTC_MR에 대해선 각 노드가 탄소(C), 질소(N), 산소(O)를, PROTEINS에 대해선 각 노드가 헬릭스 (0) 시트(1)를 의미한다. 각 원자마다 모델이 예측시 중요하게 여기는 표현이 시각화되어 나타났다(주황색은 지역 표현을, 보라색은 전역 표현을 나타냄). 이는 제안 방법이 향후 분석 도구로써 활용 가능성을 나타낸다.</p>
                                     <div style="text-align:center; margin:1em 0;">
                                         <img src="https://als7928.github.io/project/gnn_casestudy.png" alt="Case study" style="max-width:100%; height:400px; display:inline-block;">
                                     </div>
