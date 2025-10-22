@@ -112,6 +112,11 @@ h2 {
   font-size: 32px;
 }
 
+.author {
+  color: #1772d0;
+  text-decoration: none;
+}
+
 .one {
   width: 160px;
   height: 160px;

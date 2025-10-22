@@ -63,11 +63,11 @@
                   </p>
                   <p>
                     <strong>Libraries and Tools:</strong>
-                    Pytorch / PyG / NetworkX / NumPy / OpenCV / Pandas / Matplotlib / WandB
+                    Pytorch / PyG / NetworkX / NumPy / Pandas / Matplotlib / WandB
                   </p>
                   <p>
                     <strong>OS:</strong>
-                    Windows / Mac / Linux
+                    Linux / Mac / Windows 
                   </p>
                 </td>
               </tr>
@@ -99,13 +99,17 @@
                   <span class="papertitle">
                     ProtoPrompt: Multi-perspective Prompt Optimization via Prototypical Feedback</span>
                   <br>
-                  <strong>안민혁 (리더)</strong>, 강태훈, 변해린, 조성배
+                  <strong>안민혁</strong>, 강태훈, 변해린, <a href="https://scholar.google.com/citations?user=px5LGgMAAAAJ&hl=en">조성배 교수님</a>
                   <br>
-                  <em>Preprint</em> (2024.09 — 현재)
+                  <em>Submitted to EACL</em> (2024.09 — 현재)
                   <br>
-                  <a href="https://als7928.github.io/assets/EACL_submission.pdf"><i style='font-size:1em' class='fa'>&#xf15c;&nbsp;</i>Paper</a>
+                  <a href="https://als7928.github.io/project/protoprompt.html" target="_blank" rel="noopener">
+                    <i style="font-size:1em" class="fa">&#xf0c1;&nbsp;</i>프로젝트 상세
+                  </a>
                   /
-                  <a href="https://github.com/als7928/Prompt-Optimization-with-Generalized-Feedback">Code</a>
+                  <button type="button" onclick="window.location.href='https://als7928.github.io/project/protoprompt.html';" style="background:none;border:0;padding:0;color:#069;cursor:pointer">
+                    <!-- <i style="font-size:1em" class="fa">&#xf06e;&nbsp;</i>데모 보기 -->
+                  </button>
                   <p>
                     <li><strong>문제 배경:</strong> Feedback을 활용하는 최근의 프롬프트 최적화 방법론은 Feedback이 다양한 관점을 반영하지 못하여 잘못된 방향으로 최적화되어 탐색이 길어지는 문제가 발생</li>
                     <li><strong>해결 방법:</strong> 조건부 Feedback 분포를 생성하고 그 중 가장 대표적인 Feedback을 선택하는 Prototypical Feedback 메커니즘 제안 및 활용</li>
@@ -136,7 +140,7 @@
                   <span class="papertitle">Adaptive Fusion of Global-to-Local Patterns for Graph Representation
                     Learning</span>
                   <br>
-                  <strong>안민혁</strong>, 조성배
+                  <strong>안민혁</strong>, <a href="https://scholar.google.com/citations?user=px5LGgMAAAAJ&hl=en">조성배 교수님</a>
                   <br>
                   <em>Preprint</em> (2024.05 — 현재)
                   <br>
@@ -144,7 +148,7 @@
                   /
                   <a href="https://github.com/als7928/Blend-GNN">Code</a>
                   <p>
-                    <li><strong>문제 배경:</strong> 그래프 데이터는 전역적 Context 없이는 지역적 subgraph를 구분하는 것이 어렵고 모델 표현력이 저하되는 문제가 발생</li>
+                    <li><strong>문제 배경:</strong> 그래프 데이터는 전역적 Context 없이는 지역적 Subgraph를 구분하는 것이 어렵고 모델 표현력이 저하되는 문제가 발생</li>
                     <li><strong>해결 방법:</strong> 입력에 따라 지역-전역 표현을 동적으로 추출하고 결합하는 GNN 개발 </li>
                     <li><strong>결과:</strong> 그래프, 노드 분류, 회귀 데이터셋에서 성능 최대 11.01%p 개선</li>  
                   </p>
@@ -162,11 +166,11 @@
                   <img src='https://als7928.github.io/assets/demo.gif' width="160">
                 </td>
                 <td style="padding:20px;width:75%;vertical-align:middle">
-                  <span class="papertitle">Crowd Counting Using Diffusion-Based Latent Space</span>
+                  <span class="papertitle">Latent Diffusion Models를 이용한 Crowd Counting</span>
                   <br>
-                  손기훈, <strong>안민혁 (리더)</strong>, 이시원
+                  손기훈, <strong>안민혁</strong>, 이시원
                   <br>
-                  <em>졸업 프로젝트</em> (지도교수: <a href="https://www.csehong.com/">홍성은</a>), (2023.03 — 2023.08)
+                  <em>졸업 프로젝트</em> (지도교수: <a href="https://www.csehong.com/">홍성은 교수님</a>), (2023.03 — 2023.08)
                   <br>
                   <a href="https://als7928.github.io/assets/crowd_counting_paper.pdf"><i style='font-size:1em' class='fa'>&#xf15c;&nbsp;</i>Paper</a>
                   /
@@ -175,7 +179,7 @@
                   <a href="https://github.com/als7928/Capstone">Code</a>
                   <p>
                     <li><strong>문제 배경:</strong> 기존의 Crowd counting 방법론은 고비용 데이터(열화상, 깊이 등)가 필요하다는 문제가 발생</li>
-                    <li><strong>해결 방법:</strong> RGB➡️Crowd 맵 변환을 위해 Diffusion Models를 활용하는 방법론 개발</li>
+                    <li><strong>해결 방법:</strong> RGB→Crowd 맵 변환을 위해 Diffusion Models를 활용하고, 변환된 Crowd에 Contour Detection하여 사람의 수를 측정하는 시스템 개발</li>
                     <li><strong>결과:</strong> 단일 모달리티(RGB)만으로 Cost-effective한 추론 및 고비용 데이터를 사용했을 때와 유사한 성능 달성</li>
                   </p>
                   <p>
@@ -184,7 +188,6 @@
                     <p class="keyword">Diffusion Models</p>
                     <p class="keyword">Conditional Image Generation</p>
                     <p class="keyword">Latent Space</p>
-                    <p class="keyword">Denoising Diffusion Probabilistic Models</p>
                   </div>
                   </p>
                 </td>
@@ -271,7 +274,7 @@
                   <p>
                     <strong>Future Mobility Urban Challenge 참가상</strong> (2022.11)
                     <br> 서울대학교
-                    <br> — Camera-LiDAR 딥러닝 기반 3D 객체 탐지 시스템 개발, RGB & LiDAR 데이터 수집, 전처리 및 학습 / ROS 기반 실시간 추론 시스템에 적용
+                    <br> — Camera-LiDAR 딥러닝 기반 3D 객체 탐지 시스템 개발, RGB & LiDAR 데이터 수집, 전처리 및 학습 / ROS 기반 실시간 추론 시스템 개발
                   </p>
                   <p>
                     <strong>국제 대학생 창작 자동차 경진대회 참가</strong> (2022.10)
@@ -284,7 +287,7 @@
                   <p>
                     <strong>학부연구생 (연구실 인턴)</strong> (2021.12 — 2022.05)
                     <br> 인하대학교 컴퓨터비젼연구실 (지도교수: <a
-                      href="https://scholar.google.com/citations?hl=en&user=TbA26gkAAAAJ">김학일</a>)
+                      href="https://scholar.google.com/citations?hl=en&user=TbA26gkAAAAJ">김학일 교수님</a>)
                     <br> <a
                       href="https://als7928.github.io/assets/Synthetic_datasets.pdf">Project</a>
                     <br> — 배경 이미지와 희소 클래스의 전경을 Semantic Segmentation을 통해 분리하고 자동으로 합성하여 균형 잡힌 학습 데이터셋을 생성하는 시스템 개발
