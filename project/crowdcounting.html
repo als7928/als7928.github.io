@@ -85,7 +85,7 @@
                                             <li>
                                             <strong>조건부 컨텍스트 인코딩(Condition Encoder, 𝓣)</strong>:
                                             RGB 이미지 \(y\) (3×256×256)를 \(𝓣(y)\) (3×64×64)로 변환하고,
-                                            채널 단위로 \(z\)와 결합하여 U-Net의 cross-attention에 주입한다.
+                                            채널 단위로 \(z\)와 결합하여 U-Net과 concatenation 한다. (cross-attention 방법 보다 추론 성능이 높게 관찰되었다.)
                                             </li>
                                             <li>
                                             <strong>잠재 확산(Diffusion + Denoising U-Net)</strong>:
