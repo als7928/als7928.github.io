@@ -97,6 +97,10 @@ h2 {
   font-size: 22px;
 }
 
+.paperdesc {
+  text-align: justify;
+}
+
 .papertitle {
   font-family: 'Lato', Verdana, Helvetica, sans-serif;
   font-size: 14px;
@@ -113,9 +117,8 @@ h2 {
 }
 
 .author {
-  color: #1772d0;
   text-decoration: none;
-  font-size: 22px;
+  font-size: 20px;
 }
 
 .one {
