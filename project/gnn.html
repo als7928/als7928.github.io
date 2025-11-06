@@ -95,7 +95,7 @@
                                     <div style="text-align:center; margin:1em 0;">
                                         <img src="https://als7928.github.io/project/gnn_overview.png" alt="Overall architecture" style="max-width:100%; height:auto; display:inline-block;">
                                     </div>
-                                    <p class="paperdesc">입력 그래프 \(G=(\mathcal{V},\mathcal{E},X)\)의 노드 특성을 초기 표현 \(h(0)\)로 인코딩한 뒤, Neural ODE를 사용해 \(h(0)\)를 \(h(T)\)로 변화시켰습니다. 이때 설계한 \(\mathcal{L}_{LG}\)를 이용해 h(0)는 부드러운 전역 표현을 갖도록 학습됩니다. 이어서 어탠션 메커니즘을 활용하여 두 표현 \(h(0)\)과 \(h(T)\)를 융합하는데, 모델이 예측에 적합한 비율을 학습하도록 합니다. 이후 융합된 표현을 FC Layer에 통과시켜 최종 예측 결과 \(\hat{y}\)를 얻습니다.</p>
+                                    <p class="paperdesc">입력 그래프 \(G=(\mathcal{V},\mathcal{E},X)\)의 노드 특성을 초기 표현 \(h(0)\)로 인코딩한 뒤, Neural ODE를 사용해 \(h(0)\)를 \(h(T)\)로 변화시켰습니다. 이때 설계한 \(\mathcal{L}_{LG}\)를 이용해 \(h(0)\)를 부드러운 전역 표현을 갖도록 학습시켰습니다. 이어서 어탠션 메커니즘을 활용하여 두 표현 \(h(0)\)과 \(h(T)\)를 융합하는데 모델이 예측에 적합한 비율을 학습하도록 설계했습니다. 이후 융합된 표현을 FC Layer에 통과시켜 최종 예측 결과 \(\hat{y}\)를 얻습니다.</p>
                                 </td>
                             </tr>
                         </tbody>
