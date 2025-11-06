@@ -12,8 +12,8 @@
     <meta name="author" content="Jon Barron">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="https://als7928.github.io/assets/favicon/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="https://als7928.github.io/stylesheet.css">
-    <!-- <link rel="stylesheet" type="text/css" href="../stylesheet.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="https://als7928.github.io/stylesheet.css"> -->
+    <link rel="stylesheet" type="text/css" href="../stylesheet.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
@@ -49,12 +49,30 @@
                                         /
                                         <a href="https://github.com/als7928/Capstone"><i style="font-size:1em" class="fa">&#xf09b;&nbsp;</i>Code</a>
                                     </p>
-                                    <br>
-                                    <div style="text-align:center; margin:1em 0;">
-                                        <img src="https://als7928.github.io/project/crowdcounting_process.png" alt="Overall framework" style="max-width:100%; height:auto; display:inline-block;">
+                                    <p style="text-align:center;"><b>기여도: 70%</b></p>
+                                    <div class="contribution"> 
+                                    <div class="label">기획</div>
+                                    <div class="bar-bg">
+                                        <div class="bar-fill plan" style="width: 70%;"></div>
                                     </div>
-                                    <p class="paperdesc"> DDIM(Differentiable Diffusion Implicit Models)로부터 500번의 노이즈 제거를 수행해 \((z_T, z_{T-1}, ..., z_0)\)를 얻은 후 Contour Detection을 통해 인구수와 위치를 추정한다.</p>
-                                    
+                                    <div class="value">70%</div>
+
+                                    <div class="label">개발</div>
+                                    <div class="bar-bg">
+                                        <div class="bar-fill dev" style="width: 80%;"></div>
+                                    </div>
+                                    <div class="value">80%</div>
+                                    <div class="label">실험</div>
+                                    <div class="bar-bg">
+                                        <div class="bar-fill experiments" style="width: 60%;"></div>
+                                    </div>
+                                    <div class="value">60%</div>
+                                    <div class="label">분석</div>
+                                    <div class="bar-bg">
+                                        <div class="bar-fill analysis" style="width: 60%;"></div>
+                                    </div>
+                                    <div class="value">60%</div>
+                                    </div>
                                 </td>
 
                             </tr>
@@ -79,30 +97,13 @@
                         <tbody>
                             <tr>
                                 <td style="padding:20px;width:100%;vertical-align:middle;text-align: left;">
-                                    <h2>아키텍쳐</h2>
+                                    <h2>방법 설계</h2>
                                     <p class="paperdesc">
-                                        <ol>
-                                            <li>
-                                            <strong>인코딩(Encoder, 𝓔)</strong>:
-                                            입력 군중 맵 \(x\) (1×256×256) 잠재 표현 \(z = 𝓔(x)\) (1×64×64)로 압축한다. 
-                                            확산을 잠재 공간에서 수행해 효율성과 품질을 동시에 확보한다.
-                                            </li>
-                                            <li>
-                                            <strong>조건부 컨텍스트 인코딩(Condition Encoder, 𝓣)</strong>:
-                                            RGB 이미지 \(y\) (3×256×256)를 \(𝓣(y)\) (3×64×64)로 변환하고,
-                                            채널 단위로 \(z\)와 결합하여 U-Net과 concatenation 한다. (cross-attention 방법 보다 추론 성능이 높게 관찰되었다.)
-                                            </li>
-                                            <li>
-                                            <strong>잠재 확산(Diffusion + Denoising U-Net)</strong>:
-                                            z를 시간 단계 \(t\)에 따라 노이즈가 섞인 \(z_t\)로 만들고,
-                                            네트워크 \(ε_θ(z_t, t, 𝓣(y))\)가 노이즈를 예측·제거하도록 학습한다.
-                                            학습 후에는 반대 과정을 통해 깨끗한 잠재 표현 \(z_0\)을 복원한다.
-                                            </li>
-                                            <li>
-                                            <strong>디코딩(Decoder, 𝓓)</strong>:
-                                            \(z_0\)를 입력으로 최종 군중 밀도맵 \(\hat{x} = 𝓓(z_0)\)을 재구성한다.
-                                            </li>
-                                        </ol>
+                                        <div style="text-align:center; margin:1em 0;">
+                                            <img src="https://als7928.github.io/project/crowdcounting_process.png" alt="Overall framework" style="max-width:100%; height:auto; display:inline-block;">
+                                        </div>
+                                        <p class="paperdesc"> DDIM(Differentiable Diffusion Implicit Models)로부터 500번의 노이즈 제거를 수행해 \((z_T, z_{T-1}, ..., z_0)\)를 얻은 후 Contour Detection을 통해 인구수와 위치를 추정하였습니다. 효율성을 위해 입력 군중 맵 \(x\) (1×256×256)를 잠재 표현 \(z = 𝓔(x)\) (1×64×64)로 압축하였습니다. 그리고 RGB 이미지 \(y\) (3×256×256)는 \(𝓣(y)\) (3×64×64)로 변환한 뒤 z와 concatenation하였습니다. z를 시간 단계 \(t\)에 따라 노이즈가 섞인 \(z_t\)로 만들고,
+                                            모델 \(ε_θ(z_t, t, 𝓣(y))\)가 노이즈를 예측·제거하도록 학습하였습니다. 이렇게 학습된 모델을 활용하여 입력 y만으로 군중 밀도맵 \(\hat{x} = 𝓓(z_0)\)을 재구성할 수 있었습니다.
                                     </p>
                                     <div style="text-align:center; margin:1em 0;">
                                         <img src="https://als7928.github.io/project/crowdcounting_architecture.png" alt="Overall architecture" style="max-width:70%; height:70%; display:inline-block;">
@@ -119,7 +120,7 @@
                             <tr>
                                 <td style="padding:20px;width:100%;vertical-align:middle;text-align: left;">
                                     <h2>결과</h2>
-                                    <p class="paperdesc">ShanghaiTech Part-A 데이터셋에 대해 모델이 사람이 위치한 곳과 인원수를 추론하고 Crowd map을 시각화 한 결과.</p>
+                                    <p class="paperdesc">ShanghaiTech Part-A 데이터셋에 대해 모델이 사람이 위치한 곳과 인원수를 추론하고 Crowd map을 시각화 한 결과입니다.</p>
                                     <div style="text-align:center; margin:1em 0;">
                                         <img src="https://als7928.github.io/project/crowdcounting_fig.png" alt="Overall architecture" style="max-width:100%; height:100%; display:inline-block;">
                                     </div>

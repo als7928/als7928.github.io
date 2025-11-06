@@ -9,8 +9,8 @@
     <meta name="author" content="Jon Barron">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="https://als7928.github.io/assets/favicon/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="https://als7928.github.io/stylesheet.css">
-    <!-- <link rel="stylesheet" type="text/css" href="../stylesheet.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="https://als7928.github.io/stylesheet.css"> -->
+    <link rel="stylesheet" type="text/css" href="../stylesheet.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
@@ -31,27 +31,40 @@
                                     </p>
 
                                     <p class="author" style="text-align: center;">
-                                    안민혁, 강태훈, 변해린, 조성배 교수님
+                                    <b>안민혁(리더)</b>, 강태훈, 변해린, 조성배 교수님
                                     </p>
                                     <p class="date" style="text-align: center;">
                                         Submitted to EACL (2024.09 — 현재)
-                                        <br>
-                                        기여도: 50%
                                     </p>
                                     <p style="text-align:center;">
                                         <a href="https://als7928.github.io/project/EACL_submission.pdf"><i style='font-size:1em;font-size: px;' class='fa'>&#xf15c;&nbsp;</i>Paper</a>
                                         /
                                         <a href="https://github.com/als7928/Prompt-Optimization-with-Generalized-Feedback"><i style="font-size:1em" class="fa">&#xf09b;&nbsp;</i>Code</a>
                                     </p>
-                                    <br>
-                                    <div style="text-align:center; margin:1em 0;">
-                                        <img src="https://als7928.github.io/project/protoprompt_overview.png" alt="Overall framework of ProtoPrompt" style="max-width:100%; height:auto; display:inline-block;">
+                                    <p style="text-align:center;"><b>기여도: 70%</b></p>
+                                    <div class="contribution"> 
+                                    <div class="label">기획</div>
+                                    <div class="bar-bg">
+                                        <div class="bar-fill plan" style="width: 80%;"></div>
                                     </div>
-                                    <p class="paperdesc">LLM의 프롬프트를 자동으로 탐색하고 최적화하기 위한 구조로 설계했다. 단순히 하나의 프롬프트를 수정하는 것이 아니라, 탐색(Search)–평가(Evaluation)–갱신(Update)의 반복을 통해 점진적으로 더 나은 프롬프트를 찾아가는 과정이다.
-여기서 MCTS(Monte Carlo Tree Search)를 활용하여 탐색 트리를 확장해 나간다. 각 상태(state)에서는 기본 모델인 GPT-4o-mini가 주어진 프롬프트로 task 응답을 생성하고, Optimizer LLM(GPT-4-turbo)가 그 결과를 바탕으로 다양한 피드백 후보를 제시한다. 이렇게 생성된 피드백들은 의미 임베딩 공간에 투영되며, 그중에서 가장 중심적이고 대표적인 피드백(Prototypical Feedback)을 선택한다. 이 피드백은 다음 단계로의 방향성을 제시하며 프롬프트를 업데이트한다.
-이렇게 갱신된 프롬프트는 탐색 트리의 새로운 상태로 추가되고, 보상(reward)을 통해 프롬프트의 품질을 평가한다. 이후 선택(selection), 확장(expansion), 시뮬레이션(simulation), 역전파(backpropagation)의 MCTS 과정을 반복하면서, 탐색 공간을 효율적으로 줄여가며 가장 높은 성능을 달성하는 최적의 프롬프트를 찾아낸다.</p>
-                                    </td>
+                                    <div class="value">80%</div>
 
+                                    <div class="label">개발</div>
+                                    <div class="bar-bg">
+                                        <div class="bar-fill dev" style="width: 60%;"></div>
+                                    </div>
+                                    <div class="value">60%</div>
+                                    <div class="label">실험</div>
+                                    <div class="bar-bg">
+                                        <div class="bar-fill experiments" style="width: 60%;"></div>
+                                    </div>
+                                    <div class="value">60%</div>
+                                    <div class="label">분석</div>
+                                    <div class="bar-bg">
+                                        <div class="bar-fill analysis" style="width: 80%;"></div>
+                                    </div>
+                                    <div class="value">80%</div>
+                                    </div>
                             </tr>
                         </tbody>
                     </table>
@@ -76,7 +89,7 @@
                             <tr>
                                 <td style="padding:20px;width:100%;vertical-align:middle;text-align: left;">
                                     <h2>배경</h2>
-                                    <p class="paperdesc">Prototypical Feedback (PF) 연구의 동기가 되는 실험이다. 한 개의 자연어 Exemplar가 주어진 채 추론 하는 CoT 셋팅을 초기 비교군으로 설정하였다. 이때, Exemplar를 다양하게 변형해보았다. Exemplar 내 구체적인 정보를 일반화시켜 변형했을 때, 대부분의 task에서 소폭적으로 성능 향상이 관측되었다. 그러나 성능 하락이 기록된 경우도 있었는데 이것을 수동으로 Exemplar를 설정한 문제라고 보았다. 이번에는 자연어 Feedback을 활용하는 자동 프롬프트 최적화 방법(MCTS)에서 실험해보았다. 결과는 대부분의 task에서 성능 향상이 있었지만 오히려 하락한 task가 관찰되었다 (Causal). 이것은 LLM이 생성한 Feedback내 구체적인 정보가 추론을 오히려 방해한 문제라고 생각했다. MCTS에 PF를 적용해 실험한 결과 모든 task에서 일관적인 성능 향상이 관측되었다.</p>
+                                    <p class="paperdesc">Prototypical Feedback (PF) 연구의 동기가 되는 실험을 수행했습니다. 한 개의 자연어 Exemplar가 주어진 채 추론 하는 CoT 셋팅을 초기 비교군으로 설정하였습니다. 이때, Exemplar를 다양하게 변형해보았습니다. Exemplar 내 구체적인 정보를 일반화시켜 변형했을 때, 대부분의 task에서 소폭적으로 성능 향상을 관측할 수 있었습니다. 그러나 성능 하락이 관찰된 경우도 있었는데 이것을 수동으로 Exemplar를 설정한 문제라고 보았습니다. 따라서, 이번에는 자연어 Feedback을 활용하는 자동 프롬프트 최적화 방법(MCTS)에서 실험해보았습니다. 그 결과, 대부분의 task에서 성능 향상이 있었습니다. 하지만, 오히려 하락한 task의 경우도 관찰되었습니다(Causal). 그 원인은 LLM이 생성한 Feedback내 구체적인 정보가 MCTS를 방해했기 때문이라고 생각했습니다. 따라서 MCTS에 PF를 적용하게 되었고, 그 결과, 모든 task에서 일관적인 성능 향상이 관측되었습니다.</p>
                                     <div style="text-align:center; margin:1em 0;">
                                         <img src="protoprompt_fig4.png" alt="Main result" style="max-width:50%; height:50%; display:inline-block;">
                                     </div>
@@ -92,23 +105,41 @@
                         <tbody>
                             <tr>
                                 <td style="padding:20px;width:100%;vertical-align:middle;text-align: left;">
-                                    <h2>결과</h2>
-                                    <p class="paperdesc">Big-Bench task 6종와 NLU task 3종에 대해 실험한 결과. 제안 방법은 모든 task 기준으로 평균 0.6%p의 추론 성능 향상을 기록했다. 특히, Geometry task에서 비교 모델 대비 1.64%p의 큰 성능 향상을 달성했다.</p>
+                                    <h2>방법 설계</h2>
+                                    <div style="text-align:center; margin:1em 0;">
+                                        <img src="https://als7928.github.io/project/protoprompt_overview.png" alt="Overall framework of ProtoPrompt" style="max-width:100%; height:auto; display:inline-block;">
+                                    </div>
+                                    <p class="paperdesc">LLM의 프롬프트를 자동으로 탐색하고 최적화하기 위한 구조로 설계했습니다. 단순히 하나의 프롬프트를 수정하는 것이 아니라, 탐색(Search)–평가(Evaluation)–갱신(Update)의 반복을 통해 점진적으로 더 나은 프롬프트를 찾아가는 과정입니다.
+여기서 MCTS(Monte Carlo Tree Search)를 활용하여 탐색 트리를 확장합니다. 각 상태(state)에서는 기본 모델인 GPT-4o-mini가 주어진 프롬프트로 응답을 생성하고, Optimizer LLM(GPT-4-turbo)가 그 결과를 바탕으로 다양한 피드백 후보를 제시합니다. 이렇게 생성된 피드백들을 의미 임베딩 공간에 투영하고, 그중에서 가장 중심적이고 대표적인 피드백(Prototypical Feedback)을 선택하였습니다. 선택된 피드백은 다음 단계로의 좀 더 일반적인 방향성을 제시하면서 프롬프트를 업데이트한다.
+이렇게 갱신된 프롬프트를 탐색 트리의 새로운 상태로 추가하고, 보상(reward)을 통해 프롬프트의 품질을 평가합니다. 이후 선택(selection), 확장(expansion), 시뮬레이션(simulation), 역전파(backpropagation)의 MCTS 과정을 반복하면서, 탐색 공간을 효율적으로 줄여가며 가장 높은 성능을 달성하는 최적의 프롬프트를 찾아냅니다.</p>
+                                    </td>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table
+                        style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+                        <tbody>
+                            <tr>
+                                <td style="padding:20px;width:100%;vertical-align:middle;text-align: left;">
+                                    <h2>실험 및 결과</h2>
+                                    <p class="paperdesc">Big-Bench task 6종와 NLU task 3종에 대해 실험한 결과입니다. 제안 방법은 모든 task 기준으로 평균 0.6%p의 추론 성능 향상을 기록했습니다. 특히, Geometry task에서 비교 모델 대비 1.64%p의 큰 성능 향상을 달성했습니다.</p>
                                     <div style="text-align:center; margin:1em 0;">
                                         <img src="https://als7928.github.io/project/protoprompt_fig2.png" alt="Main result" style="max-width:100%; height:100%; display:inline-block;">
                                     </div>
 
-                                    <p class="paperdesc">GPT-4o-mini와 GPT-4-turbo로 최적화하여 얻은 프롬프트를 더 강력한 모델인 GPT-o3-mini에 주어 추론하였을 때 성능 관찰 표. 제안 방법의 경우에서 가장 높은 성능이 관측되었다. 이를 통해 제안 방법으로 얻은 최종 프롬프트가 다른 모델에서도 유효함을 알 수 있다.</p>
+                                    <p class="paperdesc">GPT-4o-mini와 GPT-4-turbo로 최적화하여 얻은 프롬프트를 더 강력한 모델인 GPT-o3-mini에 주어 추론하였을 때 성능 관찰 표. 제안 방법의 경우에서 가장 높은 성능이 관측되었습니다. 이를 통해 제안 방법으로 얻은 최종 프롬프트가 다른 모델에서도 유효함을 알 수 있었습니다.</p>
                                     <div style="text-align:center; margin:1em 0;">
                                         <img src="protoprompt_fig5.png" alt="Cost analysis" style="max-width:70%; height:70%; display:inline-block;">
                                     </div>
 
-                                    <p class="paperdesc">PF 적용 전/후 탐색 과정 수렴 속도를 비교한 결과. 제안 방법 적용 시 그러지 아니한 경우보다 낮은 depth에서 부터 높은 정확도를 보이며 높은 수렴 속도를 보여주었다.</p>
+                                    <p class="paperdesc">PF 적용 전/후 탐색 과정 수렴 속도를 비교한 결과. 제안 방법 적용 시 그러지 아니한 경우보다 낮은 depth에서 부터 높은 정확도를 보이며 높은 수렴 속도를 보여주었습니다.</p>
                                     <div style="text-align:center; margin:1em 0;">
                                         <img src="https://als7928.github.io/project/protoprompt_fig1.png" alt="Convergence analysis" style="max-width:50%; height:50%; display:inline-block;">
                                     </div>
 
-                                    <p class="paperdesc">PF 적용 전/후 Accuracy와 Cost에 대해 비교 분석한 결과. 제안 방법 적용 시 총합 1.85%p의 성능 향상과 18.19%만큼의 비용 절감을 달성할 수 있었다.</p>
+                                    <p class="paperdesc">PF 적용 전/후 Accuracy와 Cost에 대해 비교 분석한 결과. 제안 방법 적용 시 총합 1.85%p의 성능 향상과 18.19%만큼의 비용 절감을 달성할 수 있었습니다.</p>
                                     <div style="text-align:center; margin:1em 0;">
                                         <img src="https://als7928.github.io/project/protoprompt_fig3.png" alt="Cost analysis" style="max-width:50%; height:50%; display:inline-block;">
                                     </div>

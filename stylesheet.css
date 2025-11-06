@@ -176,3 +176,48 @@ span.highlight {
   font-weight: 500;
   display: inline-block;
 }
+
+.contribution {
+  display: grid;
+  grid-template-columns: 60px 1fr 60px; /* 항목 / 막대 / 수치 */
+  align-items: center;
+  row-gap: 8px;
+  column-gap: 1em;
+  width: 60%;
+  border:0px;
+  border-spacing:0px;
+  border-collapse:separate;
+  margin-right:auto;
+  margin-left:auto;
+  text-align: center;
+}
+
+.label {
+  /* font-weight: 600; */
+  text-align: right;
+}
+
+.bar-bg {
+  background: #e0e0e0;
+  height: 1em;
+  border-radius: 9999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 0.8s ease;
+}
+
+.value {
+  text-align: left;
+  font-size: 1em;
+}
+
+/* 색상 지정 */
+.plan { background: #3b82f6; }      
+.dev { background: #f97316; }       
+.experiments { background: #9851c1; }  
+.analysis { background: #10b981; } 

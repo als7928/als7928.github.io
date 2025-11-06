@@ -13,9 +13,9 @@
     <meta name="author" content="Jon Barron">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="https://als7928.github.io/assets/favicon/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="https://als7928.github.io/stylesheet.css">
-    <!-- <link rel="stylesheet" type="text/css" href="../stylesheet.css"> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="https://als7928.github.io/stylesheet.css"> -->
+    <link rel="stylesheet" type="text/css" href="../stylesheet.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 
 </head>
 
@@ -35,30 +35,40 @@
                                     </p>
 
                                     <p class="author" style="text-align: center;">
-                                    안민혁, 조성배 교수님
+                                    <b>안민혁</b>, 조성배 교수님
                                     </p>
                                     <p class="date" style="text-align: center;">
                                         <em>Preprint</em> (2024.05 — 현재)
-                                        <br>
-                                        기여도: 100%
                                     </p>
                                     <p style="text-align:center;">
                                         <a href="https://als7928.github.io/project/NeurIPS_2025_Graph.pdf"><i style='font-size:1em;font-size: px;' class='fa'>&#xf15c;&nbsp;</i>Paper</a>
                                         /
                                         <a href="https://github.com/als7928/Blend-GNN"><i style="font-size:1em" class="fa">&#xf09b;&nbsp;</i>Code</a>
                                     </p>
-                                    <br>
-                                    <div style="text-align:center; margin:1em 0;">
-                                        <img src="https://als7928.github.io/project/gnn_overview.png" alt="Overall architecture" style="max-width:100%; height:auto; display:inline-block;">
+                                    <p style="text-align:center;"><b>기여도: 93%</b></p>
+                                    <div class="contribution"> 
+                                    <div class="label">기획</div>
+                                    <div class="bar-bg">
+                                        <div class="bar-fill plan" style="width: 80%;"></div>
                                     </div>
-                                    <p class="paperdesc">입력 그래프 \(G=(\mathcal{V},\mathcal{E},X)\)가 주어지면 노드 특성은 초기 표현 \(h(0)\)로 인코딩된다. 연속적 모델링을 통해 \(h(0)\)을 \(h(T)\)로 변화시키기 위해 Neural ODE를 사용한다. \(\mathcal{L}_{LG}\)는 전역 표현과 일치되도록 \(h(0)\)를 규제한다. 그 뒤, 어탠션 메커니즘을 활용하여 두 표현 \(h(0)\)과 \(h(T)\)를 적응적으로 융합한다. 융합된 표현은 FC Layer를 거쳐 최종 예측 \(\hat{y}\)를 출력한다.</p>
-                                    
+                                    <div class="value">80%</div>
+
+                                    <div class="label">개발</div>
+                                    <div class="bar-bg">
+                                        <div class="bar-fill dev" style="width: 100%;"></div>
+                                    </div>
+                                    <div class="value">100%</div>
+                                    <div class="label">실험/분석</div>
+                                    <div class="bar-bg">
+                                        <div class="bar-fill analysis" style="width: 100%;"></div>
+                                    </div>
+                                    <div class="value">100%</div>
+                                    </div>
                                 </td>
 
                             </tr>
                         </tbody>
                     </table>
-
                     <table
                         style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
                         <tbody>
@@ -77,8 +87,23 @@
                         <tbody>
                             <tr>
                                 <td style="padding:20px;width:100%;vertical-align:middle;text-align: left;">
-                                    <h2>실험</h2>
-                                    <p class="paperdesc">그래프 분류 데이터셋 6종, 노드 분류 데이터셋 4종, 그래프 회귀 데이터셋 2종에 대해 실험하였고 Chameleon 데이터셋에서 최대 11.01%p 성능 향상을 확인했다.</p>
+                                    <h2>방법 설계</h2>
+                                    <div style="text-align:center; margin:1em 0;">
+                                        <img src="https://als7928.github.io/project/gnn_overview.png" alt="Overall architecture" style="max-width:100%; height:auto; display:inline-block;">
+                                    </div>
+                                    <p class="paperdesc">입력 그래프 \(G=(\mathcal{V},\mathcal{E},X)\)의 노드 특성을 초기 표현 \(h(0)\)로 인코딩한 뒤, Neural ODE를 사용해 \(h(0)\)를 \(h(T)\)로 변화시켰습니다. 이때 설계한 \(\mathcal{L}_{LG}\)를 이용해 h(0)는 부드러운 전역 표현을 갖도록 학습됩니다. 이어서 어탠션 메커니즘을 활용하여 두 표현 \(h(0)\)과 \(h(T)\)를 융합하는데, 모델이 예측에 적합한 비율을 학습하도록 합니다. 이후 융합된 표현을 FC Layer에 통과시켜 최종 예측 결과 \(\hat{y}\)를 얻습니다.</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table
+                        style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+                        <tbody>
+                            <tr>
+                                <td style="padding:20px;width:100%;vertical-align:middle;text-align: left;">
+                                    <h2>실험 및 결과</h2>
+                                    <p class="paperdesc">그래프 분류 데이터셋 6종, 노드 분류 데이터셋 4종, 그래프 회귀 데이터셋 2종에 대해 실험하였고 Chameleon 데이터셋에서 최대 11.01%p 성능 향상을 확인했습니다.</p>
                                     <div style="text-align:center; margin:1em 0;">
                                         <div id="gnn-carousel" style="display:inline-block; max-width:100%; text-align:center;">
                                             <div style="position:relative; display:inline-block; width:100%; max-width:800px;">
@@ -128,17 +153,17 @@
                                         })();
                                         </script>
                                     </div>
-                                    <p class="paperdesc">Ablation study 수행 결과는 다음과 같다. 전역 표현, Loss 항, 지역 표현, Fusion-level에 대한 유용성을 확인할 수 있다. </p>
+                                    <p class="paperdesc">Ablation study 수행 결과는 다음과 같습니다. 전역 표현, Loss 항, 지역 표현, Fusion-level에 대한 유용성을 확인하였습니다. </p>
                                     <div style="text-align:center; margin:1em 0;">
                                         <img src="https://als7928.github.io/project/gnn_ablation.png" alt="Ablation study" style="max-width:90%; height:90%; display:inline-block;">
                                     </div>
 
-                                    <p class="paperdesc">모델 학습 과정에서 각 데이터셋에 대해 Attention weight를 확인한 결과, 다음과 같이 데이터 별 전역 표현과 지역 표현이 학습되는 가중치가 서로 다른 것을 확인할 수 있다.</p>
+                                    <p class="paperdesc">모델 학습 과정에서 각 데이터셋에 대해 Attention weight를 확인한 결과, 다음과 같이 데이터 별 전역 표현과 지역 표현이 학습되는 가중치가 서로 다른 것을 확인할 수 있었습니다.</p>
                                     <div style="text-align:center; margin:1em 0;">
                                         <img src="https://als7928.github.io/project/gnn_ratio.png" alt="Analysis" style="max-width:100%; height:300px; display:inline-block;">
                                     </div>
 
-                                    <p class="paperdesc">저분자 데이터셋 (PTC)과 단백질 데이터셋 (PROTEINS)에 대한 정성 평가 결과. PTC_MR에 대해선 각 노드가 탄소(C), 질소(N), 산소(O)를, PROTEINS에 대해선 각 노드가 헬릭스 (0) 시트(1)를 의미한다. 각 원자마다 모델이 예측시 중요하게 여기는 표현이 시각화되어 나타났다(주황색은 지역 표현을, 보라색은 전역 표현을 나타냄). 이는 제안 방법이 향후 분석 도구로써 활용 가능성을 나타낸다.</p>
+                                    <p class="paperdesc">저분자 데이터셋 (PTC)과 단백질 데이터셋 (PROTEINS)에 대한 정성 평가 결과입니다. PTC_MR에 대해선 각 노드가 탄소(C), 질소(N), 산소(O)를, PROTEINS에 대해선 각 노드가 헬릭스 (0) 시트(1)를 의미합니다. 각 원자마다 모델이 예측시 중요하게 여기는 표현이 시각화되어 나타났습니다(주황색은 지역 표현을, 보라색은 전역 표현). 향후 제안 방법을 분석 도구로써 활용 가능하다고 생각합니다.</p>
                                     <div style="text-align:center; margin:1em 0;">
                                         <img src="https://als7928.github.io/project/gnn_casestudy.png" alt="Case study" style="max-width:100%; height:400px; display:inline-block;">
                                     </div>
