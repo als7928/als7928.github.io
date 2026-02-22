@@ -13,6 +13,11 @@ const routes = [
     component: () => import('../views/projects/GNN.vue')
   },
   {
+    path: '/project/continual-learning',
+    name: 'ContinualLearning',
+    component: () => import('../views/projects/ContinualLearning.vue')
+  },
+  {
     path: '/project/crowdcounting',
     name: 'CrowdCounting',
     component: () => import('../views/projects/CrowdCounting.vue')

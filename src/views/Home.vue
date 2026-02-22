@@ -13,8 +13,9 @@
                     AI 엔지니어 안민혁
                   </p>
                   <p>
-                    AI/ML을 통해 문제를 해결하는 다양한 프로젝트를 수행해왔습니다. <br>
-                    최근에는 프롬프트 최적화 방법론의 성능을 1.64%p 향상시키고 추론 비용을 18.19% 절감했으며, 그래프 데이터의 전역-지역 패턴을 함께 학습하는 방식으로 그래프 분류 성능을 11.01%p 개선했습니다. 협업에서는 지속적인 커뮤니케이션으로 진행 상황을 공유하고, 부족한 부분을 빠르게 보완해 끝까지 완성도 높은 결과를 만들어내는 것을 중요하게 생각합니다.
+                    AI/ML을 통해 실질적인 문제를 해결하고 기술적 가치를 증명하는 엔지니어입니다. <br>
+                    최근 프롬프트 최적화 연구를 통해 성능 1.64%p 향상 및 비용 18.19% 절감을 달성했으며, 그래프 신경망 고도화를 통해 분류 성능을 11.01%p 개선한 경험이 있습니다.
+                    탄탄한 문제 분석 능력과 협업을 기반으로 완성도 높은 AI 서비스를 제공하고 싶습니다.
                   </p>
 
                   <p style="text-align:center">
@@ -36,14 +37,26 @@
               <tr>
                 <td style="padding:20px;width:100%;vertical-align:middle">
                   <h2>스킬</h2>
-                  <p>
+                    <p>
                     <strong>Programming Language:</strong>
-                    Python
-                  </p>
-                  <p>
-                    <strong>Libraries and Tools:</strong>
-                    Pytorch / PyG / NetworkX / NumPy / Pandas / Matplotlib / WandB
-                  </p>
+                    Python / Java
+                    </p>
+                    <p>
+                    <strong>Deep Learning & ML:</strong>
+                    PyTorch / PyG / scikit-learn / NumPy / Pandas
+                    </p>
+                    <p>
+                    <strong>Backend:</strong>
+                    Spring Boot / FastAPI / REST API
+                    </p>
+                    <p>
+                    <strong>Frontend:</strong>
+                    Vue.js
+                    </p>
+                    <p>
+                    <strong>Others:</strong>
+                    Matplotlib / Seaborn / WandB / NetworkX / Git
+                    </p>
                 </td>
               </tr>
             </tbody>
@@ -67,21 +80,21 @@
               <tr>
                 <td style="padding:20px;width:25%;vertical-align:middle">
                   <div>
-                    <img src='/assets/comming_soon.png' width="160">
+                    <img src='/assets/CL2.png' width="160">
                   </div>
                 </td>
                 <td style="padding:20px;width:75%;vertical-align:middle">
                   <span class="papertitle">
-                    Differentiable Prototypical Memory Network for Contrastive Continual Learning</span>
+                    Differentiable Prototypical Memory Network for Continual Learning</span>
                   <br>
-                  3인 프로젝트
+                  3인 프로젝트 (2024.12 — 현재)
                   <br>
-                  <em></em> (2025.06 — 현재)
-                  <br>
-                  <ul>
-                    <li>특징 공간의 변화로 인해 과거 지식을 소실하는 프로토타입 드리프트 문제를 해결하기 위한 미분 가능한 메모리 구조를 제안함</li>
-                    <li>클래스 내 응집 및 클래스 간 분리와 대조 학습 기반 정렬을 도입하여, 데이터 재학습 없이도 명확한 결정 경계를 유지함</li>
-                    <li>원본 데이터를 저장하지 않는 Exemplar-free 방식을 채택하여 메모리 사용량을 최소화하고 데이터 보안성을 높인 지속 가능 학습 모델을 구축하였음</li>
+                  <router-link to="/project/continual-learning"><i style="font-size:1em" class="fa">&#xf0c1;&nbsp;</i>프로젝트 상세</router-link>
+                  <ul style="padding-left: 15px; margin-top: 10px;">
+                    <li><strong>S:</strong> 지속 학습 시 발생하는 '치명적 망각'과 특징 공간 변화에 따른 '프로토타입 드리프트' 문제</li>
+                    <li><strong>T:</strong> 원본 데이터 저장 없이(Exemplar-free) 변화하는 공간에 유연하게 대응하는 프로토타입 메모리 개발</li>
+                    <li><strong>A:</strong> 미분 가능한 프로토타입 메모리 설계 및 기하학적 제약 조건(응집 및 분리)을 통한 결정 경계 고정</li>
+                    <li><strong>R:</strong> CIFAR-100, CUB-200 등에서 SOTA급 성능 달성 및 안정적 학습 입증</li>
                   </ul>                  
                   <div style="display: flex; flex-wrap: wrap; gap: 4px;">
                     <p class="keyword">Continual Learning</p>
@@ -99,24 +112,19 @@
                   <span class="papertitle">
                     ProtoPrompt: Multi-perspective Prompt Optimization via Prototypical Feedback</span>
                   <br>
-                  4인 프로젝트
-                  <br>
-                  <em></em> (2024.09 — 현재)
+                  4인 프로젝트 (2024.09 — 현재)
                   <br>
                   <router-link to="/project/protoprompt"><i style="font-size:1em" class="fa">&#xf0c1;&nbsp;</i>프로젝트 상세</router-link>                  
-                  <ul>
-                    <li><strong>문제 배경:</strong> Feedback을 활용하는 최근의 프롬프트 최적화 방법론은 Feedback이 다양한 관점을 반영하지 못하여 잘못된 방향으로 최적화되어 탐색이 길어지는 문제가 발생</li>
-                    <li><strong>해결 방법:</strong> 조건부 Feedback 분포를 생성하고 그 중 가장 대표적인 Feedback을 선택하는 Prototypical Feedback 메커니즘 제안 및 활용</li>
-                    <li><strong>결과:</strong> 베이스라인 대비 성능 최대 1.64%p 및 추론 비용 18.19% 개선</li>                  
+                  <ul style="padding-left: 15px; margin-top: 10px;">
+                    <li><strong>S:</strong> 자동 프롬프트 최적화(APO) 단계에서 피드백이 단일 관점에 치우쳐 최적화 경로의 비효율 발생</li>
+                    <li><strong>T:</strong> 다각도의 피드백을 수용하면서 핵심 개선 방향을 제시하여 성능 극대화 및 비용 절감 목표</li>
+                    <li><strong>A:</strong> MCTS와 결합된 Prototypical Feedback 메커니즘을 제안하여 대표성 있는 피드백을 추출 및 적용</li>
+                    <li><strong>R:</strong> 베이스라인 대비 성능 최대 1.64%p 향상 및 전체 추론 비용 18.19% 절감 달성</li>                  
                   </ul>                  
                   <div style="display: flex; flex-wrap: wrap; gap: 4px;">
                     <p class="keyword">Large Language Models</p>
-                    <p class="keyword">Automatic Prompt Optimization</p>
-                    <p class="keyword">Black-box Optimization</p>
-                    <p class="keyword">LLM Agents</p>
-                    <p class="keyword">Dialogue & Interactive Systems</p>
-                    <p class="keyword">Monte Carlo Tree Search</p>
-                    <p class="keyword">Information Extraction</p>
+                    <p class="keyword">Prompt Optimization</p>
+                    <p class="keyword">MCTS</p>
                   </div>
                 </td>
               </tr>
@@ -129,25 +137,22 @@
                   </div>
                 </td>
                 <td style="padding:20px;width:75%;vertical-align:middle">
-                  <span class="papertitle">Reaction–Diffusion-based Global–Local Graph Fusion Network for Graph Mining
-                    Learning</span>
+                  <span class="papertitle">Reaction–Diffusion-based Global–Local Graph Fusion Network</span>
                   <br>
-                  3인 프로젝트
-                  <br>
-                  <em></em> (2024.05 — 현재)
+                  3인 프로젝트 (2024.05 — 현재)
                   <br>
                   <router-link to="/project/gnn">
                     <i style="font-size:1em" class="fa">&#xf0c1;&nbsp;</i>프로젝트 상세
                   </router-link>
-                  <ul>
-                    <li><strong>문제 배경:</strong> 그래프 데이터는 전역적 Context 없이는 지역적 Subgraph를 구분하는 것이 어렵고 모델 표현력이 저하되는 문제가 발생</li>
-                    <li><strong>해결 방법:</strong> 입력에 따라 지역-전역 표현을 동적으로 추출하고 결합하는 GNN 개발 </li>
-                    <li><strong>결과:</strong> 그래프, 노드 분류, 회귀 데이터셋에서 성능 최대 11.01%p 개선</li>  
+                  <ul style="padding-left: 15px; margin-top: 10px;">
+                    <li><strong>S:</strong> 기존 GNN의 지역적 메시지 패싱 의존성으로 인한 장거리 의존성 포착 한계 및 정보 소실</li>
+                    <li><strong>T:</strong> 그래프의 전역적 문맥과 지역적 패턴을 동적으로 통합하는 가변형 GNN 아키텍처 개발</li>
+                    <li><strong>A:</strong> Neural ODE 기반 확산-반응(Diffusion-Reaction) 모델링 및 어텐션 기반 적응형 융합 메커니즘 설계</li>
+                    <li><strong>R:</strong> 그래프 분류 및 노드 분류 데이터셋에서 기존 SOTA 모델 대비 성능 최대 11.01%p 향상</li>  
                   </ul>
                   <div style="display: flex; flex-wrap: wrap; gap: 4px;">
                     <p class="keyword">Graph Neural Networks</p>
                     <p class="keyword">Neural ODEs</p>
-                    <p class="keyword">Representation Learning</p>
                   </div>
                 </td>
               </tr>
@@ -159,23 +164,20 @@
                 <td style="padding:20px;width:75%;vertical-align:middle">
                   <span class="papertitle">Latent Diffusion Models를 이용한 Crowd Counting</span>
                   <br>
-                  4인 프로젝트
-                  <br>
-                  <em>졸업 프로젝트</em>, (2023.03 — 2023.08)
+                  4인 프로젝트 (2023.03 — 2023.08)
                   <br>
                   <router-link to="/project/crowdcounting">
                     <i style="font-size:1em" class="fa">&#xf0c1;&nbsp;</i>프로젝트 상세
                   </router-link>
-                  <ul>
-                    <li><strong>문제 배경:</strong> 기존의 Crowd counting 방법론은 고비용 데이터(열화상, 깊이 등)가 필요하다는 문제가 발생</li>
-                    <li><strong>해결 방법:</strong> RGB→Crowd 맵 변환을 위해 Diffusion Models를 활용하고, 변환된 Crowd에 Contour Detection하여 사람의 수를 측정하는 시스템 개발</li>
-                    <li><strong>결과:</strong> 단일 모달리티(RGB)만으로 Cost-effective한 추론 및 고비용 데이터를 사용했을 때와 유사한 성능 달성</li>
+                  <ul style="padding-left: 15px; margin-top: 10px;">
+                    <li><strong>S:</strong> 기존 군중 수 추정은 고비용의 멀티모달 데이터가 필수적이며 일반화가 어려움</li>
+                    <li><strong>T:</strong> 단일 RGB 데이터만으로 고품질 밀도 맵을 생성하고 정확한 인원수를 추정하는 시스템 구축</li>
+                    <li><strong>A:</strong> 잠재 확산 모델(LDM) 기반 생성 파이프라인 설계 및 Contour Detection 후처리 프로세스 도입</li>
+                    <li><strong>R:</strong> 단일 모달리티만으로 고비용 센서 기반 모델에 준하는 성능 달성 및 범용적 적용 가능성 입증</li>
                   </ul>
                   <div style="display: flex; flex-wrap: wrap; gap: 4px;">
                     <p class="keyword">Crowd Counting</p>
                     <p class="keyword">Diffusion Models</p>
-                    <p class="keyword">Conditional Image Generation</p>
-                    <p class="keyword">Latent Space</p>
                   </div>
                 </td>
               </tr>
@@ -209,7 +211,6 @@
               </tr>
             </tbody>
           </table>
-
 
           <table
             style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
@@ -290,7 +291,7 @@
                   <p>
                     <strong>학부연구생 (연구실 인턴)</strong> (2021.12 — 2022.05)
                     <br> 컴퓨터비젼연구실 (지도교수: 김학일 교수님)
-                    <br> <a href="/project/Synthetic_datasets.pdf">Project</a>
+                    <!-- <br> <a href="/project/Synthetic_datasets.pdf">Project</a> -->
                     <br> — 배경 이미지와 희소 클래스의 전경을 Semantic Segmentation을 통해 분리하고 자동으로 합성하여 균형 잡힌 학습 데이터셋을 생성하는 시스템 개발
                   </p>
                   <p>
