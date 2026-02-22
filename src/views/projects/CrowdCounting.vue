@@ -1,0 +1,130 @@
+<template>
+  <table
+    style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+    <tbody>
+      <tr style="padding:0px">
+        <td style="padding:0px">
+          <table
+            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <tbody>
+              <tr style="padding:0px">
+                <td style="padding:2.5%;width:63%;vertical-align:middle">
+                  <p class="name" style="text-align: center;">
+                    Latent Diffusion Models를 이용한 Crowd Counting
+                  </p>
+
+                  <p class="author" style="text-align: center;">
+                    손기훈, <b>안민혁</b>, 이시원, 홍성은 교수님
+                  </p>
+                  <p class="date" style="text-align: center;">
+                    <em>졸업 프로젝트</em> (2023.03 — 2023.08)
+                  </p>
+
+                  <p style="text-align:center;">
+                    <a href="/project/crowd_counting_paper.pdf"><i style='font-size:1em;font-size: 1em;' class='fa'>&#xf15c;&nbsp;</i>Paper</a>
+                    /
+                    <a href="/project/crowd_counting_poster.pdf"><i style='font-size:1em;font-size: 1em;' class='fa'>&#xf15c;&nbsp;</i>Poster</a>
+                    /
+                    <a href="https://github.com/als7928/Capstone"><i style="font-size:1em" class="fa">&#xf09b;&nbsp;</i>Code</a>
+                    /
+                    <router-link to="/"><i style="font-size:1em" class="fa">&#xf015;&nbsp;</i>Home</router-link>
+                  </p>
+                  <p style="text-align:center;"><b>기여도: 70%</b></p>
+                  <div class="contribution"> 
+                    <div class="label">기획</div>
+                    <div class="bar-bg">
+                      <div class="bar-fill plan" style="width: 70%;"></div>
+                    </div>
+                    <div class="value">70%</div>
+
+                    <div class="label">개발</div>
+                    <div class="bar-bg">
+                      <div class="bar-fill dev" style="width: 80%;"></div>
+                    </div>
+                    <div class="value">80%</div>
+                    <div class="label">실험</div>
+                    <div class="bar-bg">
+                      <div class="bar-fill experiments" style="width: 60%;"></div>
+                    </div>
+                    <div class="value">60%</div>
+                    <div class="label">분석</div>
+                    <div class="bar-bg">
+                      <div class="bar-fill analysis" style="width: 60%;"></div>
+                    </div>
+                    <div class="value">60%</div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table
+            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <tbody>
+              <tr>
+                <td style="padding:20px;width:100%;vertical-align:middle;text-align: center;">
+                  <h2>초록</h2>
+                  <p class="abstract">Crowd Counting은 이미지 속 사람의 수를 정확하게 추정하는 것을 목표로 하는 컴퓨터 비전 분야의 지속적인 연구 주제다. 본 연구는 깊이 정보나 열 영상과 같은 추가 데이터를 활용하는 기존 접근 방식을 벗어나, 새로운 관점을 제시한다. 이미지 생성에서 탁월한 성능을 보이는 확산 모델(Diffusion Models, DMs)의 장점을 활용하여, 본 연구에서는 잠재 확산 모델(Latent Diffusion Model)을 기반으로 한 접근법을 제안한다. 이를 통해 고품질의 군중 밀도 맵(Crowd Map)을 생성하고, 고가의 센서를 사용하지 않고도 사람 수를 효과적으로 추정할 수 있다. 본 연구는 확산 모델을 군중 수 추정 문제에 접목할 수 있는 가능성을 보여주며, 서로 다른 기술 분야의 강점을 융합하여 현대 사회의 발전에 기여한다.</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table
+            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <tbody>
+              <tr>
+                <td style="padding:20px;width:100%;vertical-align:middle;text-align: left;">
+                  <h2>방법 설계</h2>
+                  <div style="text-align:center; margin:1em 0;">
+                    <img src="/project/crowdcounting_process.png" alt="Overall framework" style="max-width:100%; height:auto; display:inline-block;">
+                  </div>
+                  <p class="paperdesc"> DDIM(Differentiable Diffusion Implicit Models)로부터 500번의 노이즈 제거를 수행해 \( (z_T, z_{T-1}, ..., z_0) \)를 얻은 후 Contour Detection을 통해 인구수와 위치를 추정하였습니다. 효율성을 위해 입력 군중 맵 \(x\) (1×256×256)를 잠재 표현 \(z = 𝓔(x)\) (1×64×64)로 압축하였습니다. 그리고 RGB 이미지 \(y\) (3×256×256)는 \(𝓣(y)\) (3×64×64)로 변환한 뒤 z와 concatenation하였습니다. z를 시간 단계 \(t\)에 따라 노이즈가 섞인 \(z_t\)로 만들고, 모델 \(ε_θ(z_t, t, 𝓣(y))\)가 노이즈를 예측·제거하도록 학습하였습니다. 이렇게 학습된 모델을 활용하여 입력 y만으로 군중 밀도맵 \(\hat{x} = 𝓓(z_0)\)을 재구성할 수 있었습니다.
+                  </p>
+                  <div style="text-align:center; margin:1em 0;">
+                    <img src="/project/crowdcounting_architecture.png" alt="Overall architecture" style="max-width:70%; height:70%; display:inline-block;">
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table
+            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <tbody>
+              <tr>
+                <td style="padding:20px;width:100%;vertical-align:middle;text-align: left;">
+                  <h2>결과</h2>
+                  <p class="paperdesc">ShanghaiTech Part-A 데이터셋에 대해 모델이 사람이 위치한 곳과 인원수를 추론하고 Crowd map을 시각화 한 결과입니다.</p>
+                  <div style="text-align:center; margin:1em 0;">
+                    <img src="/project/crowdcounting_fig.png" alt="Results" style="max-width:100%; height:100%; display:inline-block;">
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</template>
+
+<script setup>
+import { onMounted } from 'vue'
+
+onMounted(() => {
+  if (!window.MathJax) {
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\\\(', '\\\\)'], ['$', '$']]
+      }
+    };
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+    script.async = true;
+    document.head.appendChild(script);
+  } else if (window.MathJax.typeset) {
+    window.MathJax.typeset();
+  }
+})
+</script>
