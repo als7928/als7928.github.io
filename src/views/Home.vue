@@ -203,10 +203,6 @@
                     <strong>상용 자율주행차 주행 데이터</strong> (2022.05)
                     <br> NIA 한국지능정보사회진흥원 인공지능학습용데이터구축사업
                   </p>
-                  <p>
-                    <strong>다학년연구프로젝트</strong> (2021.09 — 2022.12)
-                    <br> 인하대학교
-                  </p>
                 </td>
               </tr>
             </tbody>
@@ -291,7 +287,6 @@
                   <p>
                     <strong>학부연구생 (연구실 인턴)</strong> (2021.12 — 2022.05)
                     <br> 컴퓨터비젼연구실 (지도교수: 김학일 교수님)
-                    <!-- <br> <a href="/project/Synthetic_datasets.pdf">Project</a> -->
                     <br> — 배경 이미지와 희소 클래스의 전경을 Semantic Segmentation을 통해 분리하고 자동으로 합성하여 균형 잡힌 학습 데이터셋을 생성하는 시스템 개발
                   </p>
                   <p>
