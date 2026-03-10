@@ -10,20 +10,19 @@
               <tr>
                 <td style="padding:2.5%;width:100%;vertical-align:middle;text-align:center;">
                   <h1 class="name" style="font-size: 2.2em; line-height: 1.2;">
-                    Reaction–Diffusion-based Global–Local Graph Fusion Network for Graph Mining
+                    GL-GFN: Context-Aware Rectification of Globally Diffused Graph Representations
                   </h1>
                   <p class="author" style="font-size: 1.2em; margin-top: 15px;">
                     <b>Minhyuk An</b>, Hyung-Jun Moon, and Sung-Bae Cho
                   </p>
                   <p style="font-size: 1em; color: #666;">
-                    Dept. of Artificial Intelligence, Yonsei University
+                    Dept. of Artificial Intelligence and Dept. of Computer Science, Yonsei University
                   </p>
                   <p class="date" style="font-size: 1.1em; margin-top: 10px;">
-                    <em>Submitted to Pacific-Asia Conference on Knowledge Discovery and Data Mining (PAKDD)</em>
+                    <!-- <em>Submitted to Journal</em> -->
                   </p>
                   <div style="margin-top: 20px;">
-                    <a href="/project/PAKDD_2026_Submission.pdf" target="_blank" rel="noopener noreferrer" class="btn-link"><i class='fa'>&#xf15c;&nbsp;</i>Paper</a>
-                    <a href="https://github.com/als7928/Blend-GNN" target="_blank" rel="noopener noreferrer" class="btn-link"><i class="fa">&#xf09b;&nbsp;</i>Code</a>
+                    <a href="https://github.com/als7928/GL-GFN" target="_blank" rel="noopener noreferrer" class="btn-link"><i class="fa">&#xf09b;&nbsp;</i>Code</a>
                   </div>
                 </td>
               </tr>
@@ -36,28 +35,27 @@
           <section style="margin-bottom: 40px;">
             <h2 style="border-bottom: 2px solid #333; padding-bottom: 5px; margin-bottom: 15px;">Abstract</h2>
             <p class="abstract" style="line-height: 1.6; text-align: justify;">
-              Graph Neural Networks (GNNs) effectively model local structures via message passing but struggle with long-range dependencies due to their inherent local aggregation. This research proposes a novel GNN architecture that hierarchically learns node representations by modeling global context through **graph diffusion** and inducing local information through **graph reaction**. We leverage **Neural Ordinary Differential Equations (Neural ODEs)** to define a continuous-time framework that smoothly transitions between local and global representations. We also introduce an attention-based adaptive fusion mechanism to integrate signals according to graph topology and task characteristics.
+              The global structural awareness in graph neural networks (GNNs) fundamentally conflicts with the preservation of local node discriminability. While deep propagation mechanisms are essential for modeling long-range dependencies, they mathematically function as spectral low-pass filters. Previous approaches attempt to mitigate this by combining global and local features; however, they typically treat these features as independent, parallel views, ignoring the causal entropy loss inherent in the diffusion process. In this work, we propose the <strong>global-local graph feature fusion network (GL-GFN)</strong>, a novel method that addresses this trade-off through a continuous reconstructive mechanism. We formulate representation learning as a dual-phase process governed by <strong>neural ordinary differential equations (Neural ODEs)</strong>: (1) generating a low-frequency global skeleton via continuous graph diffusion, and (2) explicitly repairing the information loss via <strong>context-aware rectification</strong>. Extensive experiments on diverse benchmarks, including heterophilous and long-range datasets (LRGB), demonstrate that the proposed method effectively balances the bias-variance trade-off, achieving SOTA generalization performance by securing both global coherence and local sharpness.
             </p>
           </section>
 
           <!-- Methodology -->
           <section style="margin-bottom: 40px;">
-            <h2 style="border-bottom: 2px solid #333; padding-bottom: 5px; margin-bottom: 15px;">Method Design: Diffusion-Reaction ODE</h2>
+            <h2 style="border-bottom: 2px solid #333; padding-bottom: 5px; margin-bottom: 15px;">Method: Context-Aware Rectification</h2>
             <div style="text-align:center; margin: 20px 0;">
-              <img src="/project/gnn_overview.png" alt="Blend-GNN Framework" style="width:100%; max-width: 800px;">
+              <img src="/project/gnn_overview2.png" alt="GL-GFN Framework" style="width:100%; max-width: 800px;">
             </div>
             <p class="paperdesc">
-              Blend-GNN consists of three main components:
+              GL-GFN consists of two functional phases:
             </p>
             <ul style="line-height: 1.8;">
-              <li><strong>Global Diffusion (\(h(T)\)):</strong> Uses Neural ODEs to solve a diffusion process over the graph topology:
-              \[\frac{dh(t)}{dt} = A h(t)\]
-              where \(h(T)\) captures the smooth, global context of the graph.
+              <li><strong>Phase 1 — Continuous Global Context Modeling (\(\mathbf{H}(0) \to \mathbf{H}(T)\)):</strong> Models information propagation as a continuous diffusion process using Graph Neural ODEs governed by the normalized Laplacian:
+              \[\frac{d\mathbf{H}(t)}{dt} = -\alpha \hat{\mathbf{L}} \mathbf{H}(t)\]
+              The terminal state \(\mathbf{H}(T)\) captures the low-frequency global structural skeleton, but inherently attenuates high-frequency local details (oversmoothing).
               </li>
-              <li><strong>Local Reaction (\(h(0)\)):</strong> Retains the sharp, localized features of the original input nodes.</li>
-              <li><strong>Adaptive Fusion:</strong> Uses an attention-based mechanism to determine the optimal balance between global and local signals per dataset:
-              \[\hat{h} = \alpha \cdot h(0) + (1-\alpha) \cdot h(T)\]
-              The weight \(\alpha\) is learned dynamically based on node-level and graph-level features.
+              <li><strong>Phase 2 — Context-Aware Rectification:</strong> Instead of treating \(\mathbf{H}(0)\) and \(\mathbf{H}(T)\) as independent views, GL-GFN explicitly <em>repairs</em> the information loss via a gating-based residual injection:
+              \[\mathbf{H}_{\text{rect}} = \mathbf{H}(T) + \lambda_{G} \cdot \sigma\!\left(\mathcal{F}(\mathbf{H}(T), \mathbf{H}(0))\right) \odot \mathbf{H}(0)\]
+              A hierarchical gating strategy operates at both <strong>node-level</strong> (fine-grained filtering) and <strong>graph-level</strong> (coarse-grained adaptation) to selectively restore discriminative local details.
               </li>
             </ul>
           </section>
@@ -66,7 +64,7 @@
           <section style="margin-bottom: 40px;">
             <h2 style="border-bottom: 2px solid #333; padding-bottom: 5px; margin-bottom: 15px;">Experimental Results</h2>
             <p class="paperdesc">
-              Experiments across 6 graph classification (MUTAG, PTC, PROTEINS, etc.), 4 node classification (Chameleon, Squirrel, etc.), and 2 graph regression datasets demonstrate significant accuracy improvements.
+              Experiments across 6 graph classification (PTC_MR, D&amp;D, PROTEINS, IMDB-B, IMDB-M, REDDIT-B), 4 node classification (Cora, CiteSeer, PubMed, Chameleon), and 2 long-range graph benchmark (LRGB) datasets (Peptides-struct, Peptides-func) demonstrate SOTA generalization performance.
             </p>
             
             <div style="text-align:center; margin: 20px 0;">
@@ -83,7 +81,7 @@
             </div>
 
             <p class="paperdesc">
-              Ablation studies confirm the synergy between global diffusion and local reaction. For heterophilous datasets (e.g., Chameleon), the global signal (\(h(T)\)) provides critical structural information, leading to an <strong>11.01%p accuracy gain</strong> over baselines.
+              Ablation studies confirm the necessity of context-aware rectification. For heterophilous datasets (e.g., Chameleon), the rectification mechanism selectively restores local identities from the over-smoothed global context, leading to an <strong>11.01%p accuracy gain</strong> over the second-best method (NAGphormer). On LRGB benchmarks, GL-GFN achieves the lowest MAE on Peptides-struct and the highest AP on Peptides-func, surpassing specialized Transformer architectures.
             </p>
           </section>
 
@@ -93,7 +91,7 @@
             <div style="text-align:center; margin: 20px 0;">
               <img src="/project/gnn_casestudy.png" alt="Case study" style="width:100%; max-width: 800px; border-radius: 8px;">
               <p style="font-style: italic; color: #555; margin-top: 10px; font-size: 0.9em;">
-                Visualization of importance (Purple: Global, Orange: Local) on molecular graphs. DPMN captures structural "islands" of information effectively.
+                Visualization of adaptive rectification on molecular (PTC_MR) and protein (PROTEINS) graphs. GL-GFN selectively sharpens boundaries of nodes requiring identity restoration while preserving global structural coherence.
               </p>
             </div>
           </section>
@@ -128,7 +126,7 @@
 </style>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, nextTick } from 'vue'
 
 const slides = [
   '/project/gnn_tab1.png',
@@ -139,9 +137,25 @@ const currentSlide = ref(0)
 const nextSlide = () => currentSlide.value = (currentSlide.value + 1) % slides.length
 const prevSlide = () => currentSlide.value = (currentSlide.value - 1 + slides.length) % slides.length
 
-onMounted(() => {
+async function renderMath() {
+  await nextTick()
   if (window.MathJax && window.MathJax.typesetPromise) {
-    window.MathJax.typesetPromise();
+    window.MathJax.typesetClear && window.MathJax.typesetClear()
+    await window.MathJax.typesetPromise()
+  }
+}
+
+onMounted(() => {
+  if (window.MathJax && window.MathJax.startup) {
+    window.MathJax.startup.promise.then(renderMath)
+  } else {
+    const check = setInterval(() => {
+      if (window.MathJax && window.MathJax.startup) {
+        clearInterval(check)
+        window.MathJax.startup.promise.then(renderMath)
+      }
+    }, 200)
+    setTimeout(() => clearInterval(check), 10000)
   }
 })
 </script>

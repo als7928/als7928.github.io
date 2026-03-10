@@ -160,11 +160,27 @@
 </style>
 
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted, nextTick } from 'vue'
+
+async function renderMath() {
+  await nextTick()
+  if (window.MathJax && window.MathJax.typesetPromise) {
+    window.MathJax.typesetClear && window.MathJax.typesetClear()
+    await window.MathJax.typesetPromise()
+  }
+}
 
 onMounted(() => {
-  if (window.MathJax && window.MathJax.typesetPromise) {
-    window.MathJax.typesetPromise();
+  if (window.MathJax && window.MathJax.startup) {
+    window.MathJax.startup.promise.then(renderMath)
+  } else {
+    const check = setInterval(() => {
+      if (window.MathJax && window.MathJax.startup) {
+        clearInterval(check)
+        window.MathJax.startup.promise.then(renderMath)
+      }
+    }, 200)
+    setTimeout(() => clearInterval(check), 10000)
   }
 })
 </script>

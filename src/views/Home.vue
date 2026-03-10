@@ -13,8 +13,8 @@
                     AI 엔지니어 안민혁
                   </p>
                   <p>
-                    AI/ML을 통해 실질적인 문제를 해결하고 기술적 가치를 증명하는 엔지니어입니다. <br>
-                    최근 프롬프트 최적화 연구를 통해 성능 1.64%p 향상 및 비용 18.19% 절감을 달성했으며, 그래프 신경망 고도화를 통해 분류 성능을 11.01%p 개선한 경험이 있습니다.
+                    안녕하세요! AI/ML을 통해 실질적인 문제를 해결하고 기술적 가치를 증명하는 엔지니어 안민혁입니다. <br>
+                    최근 프롬프트 최적화 연구를 통해 성능 1.64%p 향상 및 비용 18.19% 절감을 달성했으며, 그래프 신경망의 오버스무딩 문제를 해결하는 문맥 인식 보정 기법으로 분류 성능을 11.01%p 개선한 경험이 있습니다.
                     앞으로도 탄탄한 문제 분석 능력과 협업을 기반으로 완성도 높은 AI 서비스를 제공하고 싶습니다.
                   </p>
 
@@ -38,24 +38,28 @@
                 <td style="padding:20px;width:100%;vertical-align:middle">
                   <h2>스킬</h2>
                     <p>
-                    <strong>Programming Language:</strong>
-                    Python / Java
+                        <strong>Programming Languages:</strong>
+                        Python / Java / JavaScript / SQL
                     </p>
+
                     <p>
-                    <strong>Deep Learning & ML:</strong>
-                    PyTorch / PyG / scikit-learn / NumPy / Pandas
+                        <strong>AI & Data Engineering:</strong>
+                        PyTorch / LangGraph / FAISS / ChromaDB / PyG / scikit-learn / NumPy / Pandas
                     </p>
+
                     <p>
-                    <strong>Backend:</strong>
-                    Spring Boot / FastAPI / REST API
+                        <strong>Backend:</strong>
+                        Spring Boot / FastAPI / REST API
                     </p>
+
                     <p>
-                    <strong>Frontend:</strong>
-                    Vue.js
+                        <strong>Frontend:</strong>
+                        Vue.js
                     </p>
+
                     <p>
-                    <strong>Others:</strong>
-                    Matplotlib / Seaborn / WandB / NetworkX / Git
+                        <strong>Analysis & DevOps:</strong>
+                        NetworkX / Matplotlib / Seaborn / WandB / Git
                     </p>
                 </td>
               </tr>
@@ -91,10 +95,10 @@
                   <br>
                   <router-link to="/project/continual-learning"><i style="font-size:1em" class="fa">&#xf0c1;&nbsp;</i>프로젝트 상세</router-link>
                   <ul style="padding-left: 15px; margin-top: 10px;">
-                    <li><strong>S:</strong> 지속 학습 시 발생하는 '치명적 망각'과 특징 공간 변화에 따른 '프로토타입 드리프트' 문제</li>
-                    <li><strong>T:</strong> 원본 데이터 저장 없이(Exemplar-free) 변화하는 공간에 유연하게 대응하는 프로토타입 메모리 개발</li>
-                    <li><strong>A:</strong> 미분 가능한 프로토타입 메모리 설계 및 기하학적 제약 조건(응집 및 분리)을 통한 결정 경계 고정</li>
-                    <li><strong>R:</strong> CIFAR-100, CUB-200 등에서 SOTA급 성능 달성 및 안정적 학습 입증</li>
+                    <li>지속 학습 시 발생하는 Catastrophic forgetting 문제외 특징 공간 변화에 따른 Feature Drift 문제 발생</li>
+                    <li>원본 데이터 저장 없이(Exemplar-free) 변화하는 공간에 유연하게 대응하는 프로토타입 메모리 개발</li>
+                    <li>미분 가능한 프로토타입 메모리 설계 및 기하학적 제약 조건(응집 및 분리)을 통한 결정 경계 고정</li>
+                    <li>CIFAR-100, CUB-200 등에서 SOTA급 성능 달성 및 안정적 학습 입증</li>
                   </ul>                  
                   <div style="display: flex; flex-wrap: wrap; gap: 4px;">
                     <p class="keyword">Continual Learning</p>
@@ -116,10 +120,10 @@
                   <br>
                   <router-link to="/project/protoprompt"><i style="font-size:1em" class="fa">&#xf0c1;&nbsp;</i>프로젝트 상세</router-link>                  
                   <ul style="padding-left: 15px; margin-top: 10px;">
-                    <li><strong>S:</strong> 자동 프롬프트 최적화(APO) 단계에서 피드백이 단일 관점에 치우쳐 최적화 경로의 비효율 발생</li>
-                    <li><strong>T:</strong> 다각도의 피드백을 수용하면서 핵심 개선 방향을 제시하여 성능 극대화 및 비용 절감 목표</li>
-                    <li><strong>A:</strong> MCTS와 결합된 Prototypical Feedback 메커니즘을 제안하여 대표성 있는 피드백을 추출 및 적용</li>
-                    <li><strong>R:</strong> 베이스라인 대비 성능 최대 1.64%p 향상 및 전체 추론 비용 18.19% 절감 달성</li>                  
+                    <li>자동 프롬프트 최적화(APO) 단계에서 피드백이 단일 관점에 치우쳐 최적화 경로의 비효율 발생</li>
+                    <li>다각도의 피드백을 수용하면서 핵심 개선 방향을 제시하여 성능 극대화 및 비용 절감 목표</li>
+                    <li>MCTS와 결합된 Prototypical Feedback 메커니즘 안에서 대표성 있는 피드백을 추출 및 적용</li>
+                    <li>베이스라인 대비 성능 최대 1.64%p 향상 및 전체 추론 비용 18.19% 절감 달성</li>                  
                   </ul>                  
                   <div style="display: flex; flex-wrap: wrap; gap: 4px;">
                     <p class="keyword">Large Language Models</p>
@@ -137,7 +141,7 @@
                   </div>
                 </td>
                 <td style="padding:20px;width:75%;vertical-align:middle">
-                  <span class="papertitle">Reaction–Diffusion-based Global–Local Graph Fusion Network</span>
+                  <span class="papertitle">GL-GFN: Context-Aware Rectification of Globally Diffused Graph Representations</span>
                   <br>
                   3인 프로젝트 (2024.05 — 현재)
                   <br>
@@ -145,14 +149,15 @@
                     <i style="font-size:1em" class="fa">&#xf0c1;&nbsp;</i>프로젝트 상세
                   </router-link>
                   <ul style="padding-left: 15px; margin-top: 10px;">
-                    <li><strong>S:</strong> 기존 GNN의 지역적 메시지 패싱 의존성으로 인한 장거리 의존성 포착 한계 및 정보 소실</li>
-                    <li><strong>T:</strong> 그래프의 전역적 문맥과 지역적 패턴을 동적으로 통합하는 가변형 GNN 아키텍처 개발</li>
-                    <li><strong>A:</strong> Neural ODE 기반 확산-반응(Diffusion-Reaction) 모델링 및 어텐션 기반 적응형 융합 메커니즘 설계</li>
-                    <li><strong>R:</strong> 그래프 분류 및 노드 분류 데이터셋에서 기존 SOTA 모델 대비 성능 최대 11.01%p 향상</li>  
+                    <li>GNN의 전역 구조 인식과 지역 노드 판별력 간 근본적 트레이드오프 및 오버스무딩 문제 해결</li>
+                    <li>Neural ODE 기반 연속 확산으로 전역 골격을 모델링하고, 문맥 인식 보정(Context-Aware Rectification)으로 손실된 고주파 정보를 복원</li>
+                    <li>노드 수준 및 그래프 수준의 계층적 게이팅 전략을 통한 적응적 정보 복원 메커니즘 설계</li>
+                    <li>이종 그래프(Chameleon) 11.01%p 향상, LRGB 벤치마크에서 SOTA 달성</li>  
                   </ul>
                   <div style="display: flex; flex-wrap: wrap; gap: 4px;">
                     <p class="keyword">Graph Neural Networks</p>
                     <p class="keyword">Neural ODEs</p>
+                    <p class="keyword">Oversmoothing</p>
                   </div>
                 </td>
               </tr>
@@ -170,10 +175,10 @@
                     <i style="font-size:1em" class="fa">&#xf0c1;&nbsp;</i>프로젝트 상세
                   </router-link>
                   <ul style="padding-left: 15px; margin-top: 10px;">
-                    <li><strong>S:</strong> 기존 군중 수 추정은 고비용의 멀티모달 데이터가 필수적이며 일반화가 어려움</li>
-                    <li><strong>T:</strong> 단일 RGB 데이터만으로 고품질 밀도 맵을 생성하고 정확한 인원수를 추정하는 시스템 구축</li>
-                    <li><strong>A:</strong> 잠재 확산 모델(LDM) 기반 생성 파이프라인 설계 및 Contour Detection 후처리 프로세스 도입</li>
-                    <li><strong>R:</strong> 단일 모달리티만으로 고비용 센서 기반 모델에 준하는 성능 달성 및 범용적 적용 가능성 입증</li>
+                    <li>기존 군중 수 추정은 고비용의 멀티모달 데이터가 필수적이며 일반화가 어려움</li>
+                    <li>단일 RGB 데이터만으로 고품질 밀도 맵을 생성하고 정확한 인원수를 추정하는 시스템 구축</li>
+                    <li>잠재 확산 모델(LDM) 기반 생성 파이프라인 설계 및 Contour Detection 후처리 프로세스 도입</li>
+                    <li>단일 모달리티만으로 고비용 센서 기반 모델에 준하는 성능 달성 및 범용적 적용 가능성 입증</li>
                   </ul>
                   <div style="display: flex; flex-wrap: wrap; gap: 4px;">
                     <p class="keyword">Crowd Counting</p>
@@ -229,10 +234,13 @@
                 <td style="padding:20px;width:100%;vertical-align:middle">
                   <h2>자격증</h2>
                   <p>
-                    <strong>AICE Associate</strong> (2025.10.24)
+                    <strong>데이터분석준전문가 (ADsP)</strong> (2026.03.06)
                   </p>
                   <p>
                     <strong>SQL 개발자 (SQLD)</strong> (2025.12.12)
+                  </p>
+                  <p>
+                    <strong>AICE Associate</strong> (2025.10.24)
                   </p>
                 </td>
               </tr>
